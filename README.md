@@ -1,3 +1,3 @@
 Structure
 
-![structure](https://github.com/user-attachments/assets/f41821fa-5ab0-4b62-b622-892d9eabe145)
+![structure](https://github.com/user-attachments/assets/3c4ba73c-d019-4b1f-a7fa-04cf5c46cde9)
