@@ -1,6 +1,6 @@
 <?php
 
-    include './RedBean/rb.php';
+    include './library/redbean/rb.php';
     R::setup( 'mysql:host=localhost;dbname=cloudsound',
         'root', '' ); //for both mysql or mariaDB
 
