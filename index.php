@@ -23,5 +23,11 @@ require_once 'flight/Flight.php';
         Flight::start();
     ?>
 
+    <form action="/Cloudsound" method="post">
+        <input type="text" id="songName"><br>
+        <input type="text" id="songDescription"><br>
+        <input type="submit" value="Upload">
+    </form>
+
 </body>
 </html>
