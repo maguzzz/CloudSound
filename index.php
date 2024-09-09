@@ -1,6 +1,7 @@
 <?php
 
 include 'Database/connectionDB.php';
+require_once 'flight/Flight.php';
 
 ?>
 
@@ -15,6 +16,11 @@ include 'Database/connectionDB.php';
 <body>
     <?php
         print "test";
+        Flight::route('/', function () {
+            echo 'hello world!';
+        });
+        
+        Flight::start();
     ?>
 
 </body>
