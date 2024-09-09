@@ -1,6 +1,6 @@
 <?php
 
-include './connectionDB.php';
+include './Database/connectionDB.php';
 
 ?>
 
