@@ -28,11 +28,16 @@ require_once 'library/flight/Flight.php';
 
     <form id="container" action="/Cloudsound" method="post">
         
+        <input id="songImageUploader" type="file" accept="image/*"> 
         <div id="imagerAndImageUploader">
             <div id="songImage">
 
             </div>
-            <input id="songImageUploader" type="file" accept="image/*"> 
+            <div id="imageUploaderContainer">
+
+                <label id="labelForUploaderImage" for="songImageUploader">Upload File</label>
+            </div>
+
         </div>
         
 
