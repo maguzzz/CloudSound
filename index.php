@@ -21,12 +21,15 @@ require_once 'library/flight/Flight.php';
         Flight::route('/', function () {
         });
 
-        DBsubmitSong("Img.png","Audio","Test","Wow GreatSong","Rap","Mc FLurry","LilAlbin","Pluto");
+        Flight::route('/bye', function () {
+        echo('bye bye'); });
+
+
         Flight::start();
     ?>
 
 
-    <form id="container" action="/Cloudsound" method="post">
+    <form id="container" action="/CloudSound/upload" method="post">
         
         <input id="songImageUploader" type="file" accept="image/*"> 
         <div id="imagerAndImageUploader">
