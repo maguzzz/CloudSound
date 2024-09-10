@@ -18,7 +18,8 @@ require_once 'library/flight/Flight.php';
         Flight::route('/', function () {
             echo 'hello world!';
         });
-        
+
+        DBsubmitSong("Img.png","Audio","Test","Wow GreatSong","Rap","Mc FLurry","LilAlbin","Pluto");
         Flight::start();
     ?>
 
