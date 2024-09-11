@@ -9,6 +9,18 @@
 </head>
 
 <body>
+
+
+    <form action="/CloudSound/" method="post" enctype="multipart/form-data">
+
+        <input type="text" name="username" placeholder="username" required>
+        <input type="text" name="email" placeholder="email" required>
+        <input type="text" name="password" placeholder="password" required>
+        <input type="submit" value="register">
+
+    </form>
+
+
     <div id="MusicPlayerContainer">
         <div id="playerBorder">
             <div id="playerAlbumCover"> </div>
