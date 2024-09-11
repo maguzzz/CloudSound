@@ -68,7 +68,7 @@ function DBreassignSongSource($sId, $sImage, $sAudio) {
     $song = R::load('song', $sId);
 
     if (!$song->id) {
-        print('ERROR: SONG NOt FOUND');
+        print('ERROR: SONG NOT FOUND');
         return;
     }
 
@@ -82,9 +82,9 @@ function DBreassignSongSource($sId, $sImage, $sAudio) {
 function DBGetSongs($parameter = null){
     if($parameter != null){
         $searchSong = R::find( 'song', ' song_name LIKE ? ', ['%'.$parameter .'%'] );
-        print(implode(",",$searchSong));
+        return $searchSong;
     }else{
         $allSongs = R::findAll('song');
-        print(implode(",",$allSongs));
+        return $allSongs;
     }
 }

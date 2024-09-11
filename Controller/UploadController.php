@@ -6,13 +6,16 @@ require './Database/connectionDB.php';
 
 //require './library/redbean/rb.php';
 
-class UploadController {
+class UploadController
+{
 
-    public function index() {
+    public function index()
+    {
         Flight::render('upload');
     }
-    
-    public function upload() {
+
+    public function upload()
+    {
 
         $songName = Flight::request()->data->songName;
         $songDescription = Flight::request()->data->songDescription;
@@ -20,9 +23,7 @@ class UploadController {
         $songArtist = Flight::request()->data->artist;
         $songFeature = Flight::request()->data->feature;
         $songProducer = Flight::request()->data->producer;
-
         $songId = DBsubmitSong('creatorID', $songName, $songDescription, $songGenre, $songArtist, $songFeature, $songProducer);
-
         $dirPath = 'Songs/' . $songId;
 
         //Ordner erstellen
@@ -43,22 +44,16 @@ class UploadController {
         $fileNameCmps = explode(".", $fileName);
         $fileExtension = strtolower(end($fileNameCmps));
 
-        $allowedfileExtensions = array('jpg', 'gif', 'png', 'jpeg');
- 
-        if (in_array($fileExtension, $allowedfileExtensions)) {
-            $dest_path = './Songs/' . $songId . '/' . $fileName;
+        $dest_path = './Songs/' . $songId . '/' . $fileName;
 
-            // Verschiebe die hochgeladene Datei in das Zielverzeichnis
-            if (move_uploaded_file($fileTmpPath, $dest_path)) {
-                echo 'Bild erfolgreich hochgeladen! Pfad: ' . $dest_path;
-            } else {
-                echo 'Fehler beim Hochladen des Bildes.';
-            }
+        // Verschiebe die hochgeladene Datei in das Zielverzeichnis
+        if (move_uploaded_file($fileTmpPath, $dest_path)) {
+            echo 'Bild erfolgreich hochgeladen! Pfad: ' . $dest_path;
         } else {
-            echo 'Ungültiger Dateityp. Erlaubt sind nur: ' . implode(', ', $allowedfileExtensions);
+            echo 'Fehler beim Hochladen des Bildes.';
         }
 
-        DBreassignSongSource($songId, 'Image Path', 'Audio Path');
+        DBreassignSongSource($songId, './Songs/' . $songId . '/' . $fileName, 'test.mp3');
 
         DBGetSongs();
 

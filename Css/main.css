@@ -1,5 +1,5 @@
 * {
-    background-color: white;
+
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 
 }
@@ -8,8 +8,9 @@
 /* Player */
 
 #MusicPlayerContainer {
+    margin-top: 10em;
     width: 99vw;
-    height: 98vh;
+    height: auto;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -20,16 +21,17 @@
 
 #playerBorder {
     width: 65%;
-    height: 25%;
+    height: 15em;
+    margin-bottom: 4vw;
     display: flex;
 }
 
 /* Album Cover */
 
 #playerAlbumCover {
-    background-image: url('../Songs/Covers/S1.jpg');
     background-size: cover; 
     background-position: center;
+    background-color: red;
     background-repeat: no-repeat;
     width: 20%;
     height: 100%;

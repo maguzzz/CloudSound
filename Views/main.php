@@ -22,85 +22,43 @@
 
 
     <div id="MusicPlayerContainer">
-        <div id="playerBorder">
-            <div id="playerAlbumCover"> </div>
-            <div id="titleAndSoContainer">
-                <div id="titleAndDate">
-                    <div id="titleAndArtist">
-                        <div id="songTitle">AAAAAAAAAAAAAAA</div>
-                        <div id="songArtist">by Ken Carson</div>
-                    </div>
-                    <div id="dateContainer">20.07.2018</div>
-                </div>
-                <div id="tagAndPlayerContainer">
-                    <div id="tags">
-                        <div id="tag">R&B</div>
-                        <div id="tag">Trap</div>
-                        <div id="tag"></div>
-                        <div id="tag"></div>
-                    </div>
-                    <div id="playerContainer">
-                        <audio id="player" controls>
-                            <source src="Songs/Song/song1.mp3" type="audio/mpeg">
-                        </audio>
+
+
+        <?php if (isset($songs) && count($songs) > 0): ?>
+            <?php foreach ($songs as $song): ?>
+
+                <div id="playerBorder">
+                    <div id="playerAlbumCover" style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
+
+                    <div id="titleAndSoContainer">
+                        <div id="titleAndDate">
+                            <div id="titleAndArtist">
+                                <div id="songTitle"> <?php echo htmlspecialchars($song['songName']); ?></div>
+                                <div id="songArtist"><?php echo htmlspecialchars($song['songArtist']); ?></div>
+                            </div>
+                            <div id="dateContainer"><?php echo htmlspecialchars($song['songReleaseDate']) ?></div>
+                        </div>
+                        <div id="tagAndPlayerContainer">
+                            <div id="tags">
+                                <div id="tag"><?php echo htmlspecialchars($song['songGenre']); ?></div>
+                                <div id="tag"><?php echo htmlspecialchars($song['songArtist']); ?></div>
+                                <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
+                                <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
+                            </div>
+                            <div id="playerContainer">
+                                <audio id="player" controls>
+                                    <source src="Songs/Song/song1.mp3" type="audio/mpeg">
+                                </audio>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-            </div>
-        </div>
-        <div id="playerBorder">
-            <div id="playerAlbumCover"> </div>
-            <div id="titleAndSoContainer">
-                <div id="titleAndDate">
-                    <div id="titleAndArtist">
-                        <div id="songTitle">AAAAAAAAAAAAAAA</div>
-                        <div id="songArtist">by Ken Carson</div>
-                    </div>
-                    <div id="dateContainer">20.07.2018</div>
-                </div>
-                <div id="tagAndPlayerContainer">
-                    <div id="tags">
-                        <div id="tag">R&B</div>
-                        <div id="tag">Trap</div>
-                        <div id="tag"></div>
-                        <div id="tag"></div>
-                    </div>
-                    <div id="playerContainer">
-                        <audio id="player" controls>
-                            <source src="Songs/Song/song1.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div id="playerBorder">
-            <div id="playerAlbumCover"> </div>
-            <div id="titleAndSoContainer">
-                <div id="titleAndDate">
-                    <div id="titleAndArtist">
-                        <div id="songTitle">AAAAAAAAAAAAAAA</div>
-                        <div id="songArtist">by Ken Carson</div>
-                    </div>
-                    <div id="dateContainer">20.07.2018</div>
-                </div>
-                <div id="tagAndPlayerContainer">
-                    <div id="tags">
-                        <div id="tag">R&B</div>
-                        <div id="tag">Trap</div>
-                        <div id="tag"></div>
-                        <div id="tag"></div>
-                    </div>
-                    <div id="playerContainer">
-                        <audio id="player" controls>
-                            <source src="Songs/Song/song1.mp3" type="audio/mpeg">
-                        </audio>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
+            <?php endforeach; ?>
+        <?php else: ?>
+            <p>No songs available.</p>
+        <?php endif; ?>
     </div>
 </body>
 

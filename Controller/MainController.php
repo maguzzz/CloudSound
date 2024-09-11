@@ -6,6 +6,7 @@ require_once './Database/connectionDB.php';
 class MainController {
 
     public function index() {
+        Flight::view()->set('songs',  DBGetSongs());
         Flight::render('main');
     }
 
