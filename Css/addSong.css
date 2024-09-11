@@ -1,9 +1,12 @@
 * {
     background-color: white;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    -webkit-text-stroke: 0.3px black;
+
 }
 
 #container {
-    height: 20em;
+    height: 23em;
     width: 100%;
     flex-direction: row;
     display: flex;
@@ -18,17 +21,10 @@
     width: 15%;
 }
 
-#songImage {
-
-    height: 80%;
-    width: 90%;
-    background-color: #D9D9D9;
-
-}
 
 
 #nameAndDescription {
-
+    
     height: 90%;
     width: 40%;
     display: flex;
@@ -36,28 +32,76 @@
     flex-direction: column;
     align-items: end;
     gap: 5%;
+    
+}
 
+
+#tagContainer {
+    width: 100%;
+    height: 15%;
+    display: flex;
+    gap: 12%;
+
+}
+
+#tag {
+    background-color: #D9D9D9;
+    width: 25%;
+    height: 100%; 
+    font-size: 0.9em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+#tagDiv {
+    background-color: #D9D9D9;
+
+}
+
+
+
+
+
+/* Song Name */
+
+#songNameContainer {
+    height: 15%;
+    width: 100%;
 
 }
 
 #songName {
     border: 0px solid transparent;
     background-color: #D9D9D9;
-    height: 15%;
-    width: 100%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    height: 100%;
+    width: 99.5%;
     font-size: 0.9em;
 }
 
-#songDescription {
-    border: transparent;
+/* Description */
+
+#songDescriptionContainer {
     background-color: #D9D9D9;
     height: 80%;
     width: 100%;
-    text-align: left;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    font-size: 0.9em;
+}
 
+
+
+#songDescription {
+    border: transparent;
+    background-color: transparent;
+    height: auto;
+    width: 99%;
+    text-align: left;
+    font-size: 0.9em;
+    
+}
+
+#songDescription:focus {
+    outline: none;
 }
 
 #songUpload {
@@ -66,16 +110,16 @@
     width: 5%;
     background-color: #D9D9D9;
     width: 10%;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     font-size: 0.9em;
-
-
 }
 
-#songImageUploader {
-    background-color: black;
-    width: 100%;
 
+/* Image Uploader */
+
+#imageAndImageUploader {
+    height: 90%;
+    width: 15%;
+    gap: 5%;
 }
 
 #songImageUploader[type="file"] {
@@ -83,11 +127,44 @@
 }
 
 #labelForUploaderImage {
+    width: 100%;
+    margin-top: 5.6%;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    background-color: #D9D9D9;
+    height: 3em;
+    font-size: 0.9em;
+}
+
+#imageUploaderContainer {
+    width: 90%;
+    height: 15%;
+}
+
+#songImage {
+
+    height: 80%;
+    width: 90%;
     background-color: #D9D9D9;
 
 }
 
-#imageUploaderContainer {
-    width: 100%;
+/* Player */
+
+#playerContainer {
+    width: 99vw;
+    height: 98vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    gap: 5%;
+
 }
 
+#playerBorder {
+    border: 1px solid black;
+    width: 70%;
+    height: 23%;
+}
