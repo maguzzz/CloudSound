@@ -25,20 +25,18 @@ function DBcreateUser($uName,$uEmail,$uPassword)
     R::store($user);
 }
 
-function DBsubmitSong($sCreatorId,$sImage,$sAudio, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
+function DBsubmitSong($sCreatorId, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
 {
     $userExists = R::count('user', 'id = ?', bindings: [$sCreatorId]);
 
-    if (!$userExists) {
+    /*if (!$userExists) {
         print('ERROR: INVALID USER ID');
         return;
-    }
+    }*/
 
     $song = R::dispense(typeOrBeanArray: 'song');
 
     $song->songCreatorId = $sCreatorId;
-    $song->songImage = $sImage;
-    $song->songAudio = $sAudio;
     $song->songName = $sName;
     $song->songDescription = $sDescription;
     $song->songGenre = $sGenre;
@@ -46,6 +44,23 @@ function DBsubmitSong($sCreatorId,$sImage,$sAudio, $sName, $sDescription, $sGenr
     $song->songReleaseDate = date("d/m/Y");
     $song->songFeatures = $sFeatures;
     $song->songProducer = $sProducer;
+
+    R::store($song);
+
+    return $song->id;
+}
+
+function DBreassignSongSource($sId, $sImage, $sAudio) {
+
+    $song = R::load('song', $sId);
+
+    if (!$song->id) {
+        print('ERROR: SONG NOt FOUND');
+        return;
+    }
+
+    $song->songImage = $sImage;
+    $song->songAudio = $sAudio;
 
     R::store($song);
 }
