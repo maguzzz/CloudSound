@@ -1,5 +1,7 @@
 <?php
 
+require './Database/connectionDB.php';
+
 //require './library/redbean/rb.php';
 
 class UploadController {
@@ -13,9 +15,7 @@ class UploadController {
         $parentDir = 'Songs';
         $newFolderName = 'Song ID';//Flight::request()->data->songName; //. '___' . Flight::request()->data->artist;
         
-        $songId = DBsubmitSong('', '', 'songName', 'Description', 'Genre', 'Artist', 'Features', 'Producer');
-        
-        echo ($songId);
+        DBsubmitSong('asd', 'asd', 'songName', 'Description', 'Genre', 'Artist', 'Features', 'Producer', 'Producer');
 
         /*
         $newDirPath = $parentDir . '/' . $newFolderName;
