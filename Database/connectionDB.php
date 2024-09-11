@@ -15,24 +15,37 @@ if (!$isConn) {
 
 function DBcreateUser($uName,$uEmail,$uPassword)
 {
+    $user = R::dispense(typeOrBeanArray: 'user');    
+    $checkUser = R::findOne('user');
 
-    $user= R::dispense("user");
+    if($checkUser) { 
+        echo "user already exists: " . $checkUser->userName;
+    } else {
 
-    $user->userName = $uName;
-    $user->userEmail = $uEmail;
-    $user->userPassword = $uPassword;
+    
+        $user->userName = $uName;
+        $user->userEmail = $uEmail;
+        $user->userPassword = $uPassword;
+    
+        R::store($user);
+    }
+    $_SESSION['id'] = $checkUser->id;
 
-    R::store($user);
+
+
 }
+
+
+
 
 function DBsubmitSong($sCreatorId,$sImage,$sAudio, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
 {
     $userExists = R::count('user', 'id = ?', bindings: [$sCreatorId]);
 
-    if (!$userExists) {
-        print('ERROR: INVALID USER ID');
-        return;
-    }
+    // if (!$userExists) {
+    //     print('ERROR: INVALID USER ID');
+    //     return;
+    // }
 
     $song = R::dispense(typeOrBeanArray: 'song');
 

@@ -1,4 +1,5 @@
 <?php
+require_once './Database/connectionDB.php';
 
 //require './library/redbean/rb.php';
 
@@ -8,10 +9,11 @@ class MainController {
         Flight::render('main');
     }
 
-    public function upload() {
+    public function createUser() {
 
-         //print_r($_POST);
-         print_r(Flight::request()->data->songUpload);
+        session_start();
+        DBcreateUser(Flight::request()->data->username, Flight::request()->data->email, Flight::request()->data->password);
+        session_destroy();
 
     }
 
