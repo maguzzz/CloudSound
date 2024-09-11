@@ -21,8 +21,10 @@ require_once 'library/flight/Flight.php';
         Flight::route('/', function () {
         });
 
-        DBsubmitSong("Img.png","Audio","Test","Wow GreatSong","Rap","Mc FLurry","LilAlbin","Pluto");
+        //DBsubmitSong(1,"ss.png","ss.mp3"," 	SS","NEW SONG BY KEN CARSON","Rap","Ken Carson","McFlurry","Pluto");
+        DBGetSongs('s') ;
         Flight::start();
+
     ?>
 
 

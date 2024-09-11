@@ -13,21 +13,50 @@ if (!$isConn) {
     print "DB CONNECTION FAILED'";
 }
 
-
-
-$song = R::dispense('song');
-
-function DBsubmitSong($songImage,$sAudio, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
+function DBcreateUser($uName,$uEmail,$uPassword)
 {
-    $book = R::dispense('song');
-    $book->songImage = $songImage;
-    $book->songAudio = $sAudio;
-    $book->songName = $sName;
-    $book->songDescription = $sDescription;
-    $book->songGenre = $sGenre;
-    $book->songArtist = $sArtist;
-    $book->songReleaseDate = date("d/m/Y");
-    $book->songFeatures = $sFeatures;
-    $book->songProducer = $sProducer;
-    R::store($book);
+
+    $user= R::dispense("user");
+
+    $user->userName = $uName;
+    $user->userEmail = $uEmail;
+    $user->userPassword = $uPassword;
+
+    R::store($user);
+}
+
+function DBsubmitSong($sCreatorId,$sImage,$sAudio, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
+{
+    $userExists = R::count('user', 'id = ?', bindings: [$sCreatorId]);
+
+    if (!$userExists) {
+        print('ERROR: INVALID USER ID');
+        return;
+    }
+
+    $song = R::dispense(typeOrBeanArray: 'song');
+
+    $song->songCreatorId = $sCreatorId;
+    $song->songImage = $sImage;
+    $song->songAudio = $sAudio;
+    $song->songName = $sName;
+    $song->songDescription = $sDescription;
+    $song->songGenre = $sGenre;
+    $song->songArtist = $sArtist;
+    $song->songReleaseDate = date("d/m/Y");
+    $song->songFeatures = $sFeatures;
+    $song->songProducer = $sProducer;
+
+    R::store($song);
+}
+
+
+function DBGetSongs($parameter = null){
+    if($parameter != null){
+        $searchSong = R::find( 'song', ' song_name LIKE ? ', ['%'.$parameter .'%'] );
+        print(implode(",",$searchSong));
+    }else{
+        $allSongs = R::findAll('song');
+        print(implode(",",$allSongs));
+    }
 }
