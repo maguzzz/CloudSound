@@ -28,22 +28,38 @@ require_once 'library/flight/Flight.php';
 
     <form id="container" action="/Cloudsound" method="post">
         
-        <input id="songImageUploader" type="file" accept="image/*"> 
-        <div id="imagerAndImageUploader">
+        <div id="imageAndImageUploader">
             <div id="songImage">
+                
+                </div>
+                
+                <div id="imageUploaderContainer">
+                    
+                    <label for="songImageUploader"><div id="labelForUploaderImage"> Upload File </div></label>
+                    <input id="songImageUploader" type="file" accept="image/*"> 
+                    
+                </div>
 
             </div>
-            <div id="imageUploaderContainer">
-
-                <label id="labelForUploaderImage" for="songImageUploader">Upload File</label>
-            </div>
-
         </div>
         
 
         <div id="nameAndDescription">
-            <input type="text" id="songName" placeholder="Name"><br>
-            <input type="text" id="songDescription" placeholder="Description"><br>
+            
+            <div id="songNameContainer">
+                <input type="text" id="songName" placeholder="Name"><br>
+            </div>
+            
+            
+            <div id="songDescriptionContainer">
+                <input type="text" id="songDescription" placeholder="Description">
+            </div>
+            <div id="tagContainer">
+                <div id="tag">R&B</div>
+                <div id="tag">Jazz</div>
+                <div id="tag">Rock</div>
+                <div id="tag">Pop</div>
+            </div>
             <input type="submit" id="songUpload" value="Upload">
         </div>
     </form>
