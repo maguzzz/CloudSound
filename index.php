@@ -1,74 +1,18 @@
 <?php
 
-include 'Database/connectionDB.php';
+//include 'Database/connectionDB.php';
 require_once 'library/flight/Flight.php';
 
-?>
+//Controller
+require 'Controller/UploadController.php';
+$uploadController = new UploadController();
 
+require 'Controller/MainController.php';
+$mainController = new MainController();
 
-<!DOCTYPE html>
-<html lang="en">
+Flight::route('GET  /', array($mainController, 'index'));
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/addSong.css">
-    <title>Cloudsound</title>
-</head>
+Flight::route('GET  /upload', array($uploadController, 'index'));
+Flight::route('POST /upload', array($uploadController, 'upload'));
 
-<body>
-    <?php
-        Flight::route('/', function () {
-        });
-
-        Flight::route('/bye', function () {
-        echo('bye bye'); });
-
-
-        Flight::start();
-    ?>
-
-
-    <form id="container" action="/CloudSound/upload" method="post">
-        
-        <div id="imageAndImageUploader">
-            <div id="songImage">
-                
-                </div>
-                
-                <div id="imageUploaderContainer">
-                    
-                    <label for="songImageUploader"><div id="labelForUploaderImage"> Upload File </div></label>
-                    <input id="songImageUploader" type="file" accept="image/*"> 
-                    
-                </div>
-
-            </div>
-        </div>
-        
-
-        <div id="nameAndDescription">
-            
-            <div id="songNameContainer">
-                <input type="text" id="songName" placeholder="Name"><br>
-            </div>
-            
-            
-            <div id="songDescriptionContainer">
-                <input type="text" id="songDescription" placeholder="Description">
-            </div>
-            <div id="tagContainer">
-                <div id="tag">R&B</div>
-                <div id="tag">Jazz</div>
-                <div id="tag">Rock</div>
-                <div id="tag">Pop</div>
-            </div>
-            <input type="submit" id="songUpload" value="Upload">
-        </div>
-    </form>
-
-
-
-</body>
-
-</html>
+Flight::start();
