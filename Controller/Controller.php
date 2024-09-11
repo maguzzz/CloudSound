@@ -2,7 +2,7 @@
 
 require './library/flight/autoload.php';
 require './library/redbean/rb.php';
-require './livrary/flight/Flight.php';
+require './library/flight/Flight.php';
 
 Flight::route('POST /CloudSound/upload', function() {
     $songName = Flight::request()->data->songName;

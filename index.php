@@ -1,58 +1,18 @@
 <?php
 
-include 'Database/connectionDB.php';
+//include 'Database/connectionDB.php';
 require_once 'library/flight/Flight.php';
 
-?>
+//Controller
+require 'Controller/UploadController.php';
+$uploadController = new UploadController();
 
+require 'Controller/MainController.php';
+$mainController = new MainController();
 
-<!DOCTYPE html>
-<html lang="en">
+Flight::route('GET  /', array($mainController, 'index'));
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/addSong.css">
-    <title>Cloudsound</title>
-</head>
+Flight::route('GET  /upload', array($uploadController, 'index'));
+Flight::route('POST /upload', array($uploadController, 'upload'));
 
-<body>
-    <?php
-        Flight::route('/', function () {
-        });
-
-        Flight::route('/bye', function () {
-        echo('bye bye'); });
-
-
-        Flight::start();
-    ?>
-
-
-    <form id="container" action="/CloudSound/upload" method="post">
-        
-        <input id="songImageUploader" type="file" accept="image/*"> 
-        <div id="imagerAndImageUploader">
-            <div id="songImage">
-
-            </div>
-            <div id="imageUploaderContainer">
-
-                <label id="labelForUploaderImage" for="songImageUploader">Upload File</label>
-            </div>
-
-        </div>
-        
-
-        <div id="nameAndDescription">
-            <input type="text" id="songName" placeholder="Name"><br>
-            <input type="text" id="songDescription" placeholder="Description"><br>
-            <input type="submit" id="songUpload" value="Upload">
-        </div>
-    </form>
-
-
-
-</body>
-
-</html>
+Flight::start();
