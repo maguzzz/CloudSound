@@ -64,7 +64,13 @@ require_once 'library/flight/Flight.php';
                     <option value="Cubeatz">Cubeatz</option>
                 </select>
 
-            </div> <input type="submit" id="songUpload" value="Upload">
+            </div> 
+
+            <input id="songAudio" name="songAudio" type="file" accept="audio/wav" placeholder="Audio">
+            <label id="uploadContainer" for="songAudio"></label>
+
+            <input type="submit" id="songUpload" value="Upload">
+
         </div>
     </form>
 
