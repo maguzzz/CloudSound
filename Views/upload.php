@@ -29,8 +29,8 @@ require_once 'library/flight/Flight.php';
         </div>
         </div>
         <div id="nameAndDescription">
-            <div id="songNameContainer"> <input type="text" id="songName" placeholder="Name"><br> </div>
-            <div id="songDescriptionContainer"> <input type="text" id="songDescription" placeholder="Description">
+            <div id="songNameContainer"> <input type="text" id="songName" name="songName" placeholder="Name"><br> </div>
+            <div id="songDescriptionContainer"> <input type="text" id="songDescription" name="songDescription" placeholder="Description">
             </div>
             <div id="tagContainer">
                 <div id="tag">R&B</div>
