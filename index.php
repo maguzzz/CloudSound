@@ -18,15 +18,18 @@ require_once 'library/flight/Flight.php';
 
 <body>
     <?php
-    Flight::route('/', function () {
+        Flight::route('/', function () {
+        });
 
-    });
+        Flight::route('/bye', function () {
+        echo('bye bye'); });
 
-    Flight::start();
+
+        Flight::start();
     ?>
 
 
-    <form id="container" action="/Cloudsound" method="post">
+    <form id="container" action="/CloudSound/upload" method="post">
         
         <div id="imageAndImageUploader">
             <div id="songImage">
