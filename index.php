@@ -1,20 +1,19 @@
 <?php
 
-include 'Database/connectionDB.php';
+//include 'Database/connectionDB.php';
 require_once 'library/flight/Flight.php';
 
-?>
+//Controller
+require 'Controller/UploadController.php';
+$uploadController = new UploadController();
 
+require 'Controller/MainController.php';
+$mainController = new MainController();
 
-<!DOCTYPE html>
-<html lang="en">
+Flight::route('GET  /', array($mainController, 'index'));
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="Css/addSong.css">
-    <title>Cloudsound</title>
-</head>
+Flight::route('GET  /upload', array($uploadController, 'index'));
+Flight::route('POST /upload', array($uploadController, 'upload'));
 
 <body>
     <?php
