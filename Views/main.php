@@ -33,7 +33,6 @@
 
         <?php if (isset($songs) && count($songs) > 0): ?>
             <?php foreach ($songs as $song): ?>
-
                 <div id="playerBorder">
                     <div id="playerAlbumCover" style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
 
@@ -54,14 +53,13 @@
                             </div>
                             <div id="playerContainer">
                                 <audio id="player" controls>
-                                    <source src="Songs/Song/song1.mp3" type="audio/mpeg">
+                                    <source src="<?php echo $song->songAudio ?>" type="audio/mpeg">
                                 </audio>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
             <?php endforeach; ?>
         <?php else: ?>
             <p>No songs available.</p>
