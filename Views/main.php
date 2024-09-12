@@ -47,10 +47,23 @@
 
 
 
-    <h1><?php echo htmlspecialchars($sessionID) ?></h1>
+    <form action="/CloudSound/upload" method="get">
+        <button type="submit">upload</button>
+    </form>
 
-    <form action="/CloudSound/logout" method="post">
-        <input type="submit">Logout</button>
+    <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
+
+    <?php if ($sessionID != 'NO ID FOUND'): ?>
+        <form action="/CloudSound/logout" method="post">
+            <input type="submit" value="logout"></button>
+        </form>
+    <?php endif; ?>
+
+    <br><br><br><br><br>
+
+    <form id="searchForm" action="/CloudSound/search" method="get" enctype="multipart/form-data">
+        <input type="text" name="searchField" placeholder="Search">
+        <input type="submit" value="search">
     </form>
 
     <div id="MusicPlayerContainer">
@@ -60,9 +73,12 @@
             <?php foreach ($songs as $song): ?>
                 <div id="playerBorder">
                     <div id="playerAlbumCover"
-                       
+<<<<<<<<< Temporary merge branch 1
+                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
+=========
                         style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
                     </div>
+>>>>>>>>> Temporary merge branch 2
 
                     <div id="titleAndSoContainer">
                         <div id="titleAndDate">
@@ -86,7 +102,7 @@
                                         <input type="range" id="seekSlider" value="0">
                                     </div>
                                     <div id="buttonsAndVolume">
-                                        <audio src="./Songs/Song/ss.mp3" preload="metadata" loop></audio>
+                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
                                         <button id="SecBack" ></button>
                                         <button id="playIcon" value="Play"></button>
                                         <button id="SecForward" ></button>
@@ -107,6 +123,8 @@
             <p>No songs available.</p>
         <?php endif; ?>
     </div>
+
+    <script src="./Js/Main.js"></script>
     <script src="./Js/audioplayer.js" ></script>
     <script src="./Js/main.js" ></script>
 </body>

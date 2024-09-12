@@ -74,8 +74,9 @@ class UploadController
 
         DBreassignSongSource($songId, $coverDestPath, $audioDestPath);
 
-        DBGetSongs();
+        //DBGetSongs();
 
+        Flight::redirect('/');
     }
 
 }

@@ -5,9 +5,10 @@ require_once './Database/connectionDB.php';
 
 class MainController {
 
-    public function index() {
+    public function index($searchSong = null) {
         session_start();
-        Flight::view()->set('songs', DBGetSongs());    
+        Flight::view()->set('songs', DBGetSongs($searchSong));    
+
                     
         $sessionId = $_SESSION['id'] ?? "NO ID FOUND";
         Flight::view()->set('sessionID', $sessionId);
