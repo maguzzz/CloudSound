@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/main.css">
-    
+
     <title>Document</title>
 </head>
 
@@ -14,35 +14,35 @@
 
 
 
-<dialog id="RegisterDialog">
-    <button class="close-btn" id="closeRegisterDialog">
-        <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-    </button>
-    <form id="registerForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
-        <input type="text" name="registerName" placeholder="Name" required>
-        <input type="text" name="registerEmail" placeholder="Email" required>
-        <input type="text" name="registerPassword" placeholder="Password" required>
-        <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
-        <div>
-            <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
-            <input type="submit" value="Register">
-        </div>
-    </form>
-</dialog>
+    <dialog id="RegisterDialog">
+        <button class="close-btn" id="closeRegisterDialog">
+            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+        </button>
+        <form id="registerForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+            <input type="text" name="registerName" placeholder="Name" required>
+            <input type="text" name="registerEmail" placeholder="Email" required>
+            <input type="text" name="registerPassword" placeholder="Password" required>
+            <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
+            <div>
+                <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
+                <input type="submit" value="Register">
+            </div>
+        </form>
+    </dialog>
 
-<dialog id="LoginDialog">
-    <button class="close-btn" id="closeLoginDialog">
-        <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-    </button>
-    <form id="loginForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
-        <input type="text" name="loginEmail" placeholder="Email" required>
-        <input type="text" name="loginPassword" placeholder="Password" required>
-        <div>
-            <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
-            <input type="submit" value="Login">
-        </div>
-    </form>
-</dialog>
+    <dialog id="LoginDialog">
+        <button class="close-btn" id="closeLoginDialog">
+            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+        </button>
+        <form id="loginForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
+            <input type="text" name="loginEmail" placeholder="Email" required>
+            <input type="text" name="loginPassword" placeholder="Password" required>
+            <div>
+                <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
+                <input type="submit" value="Login">
+            </div>
+        </form>
+    </dialog>
 
 
 
@@ -51,7 +51,7 @@
         <button type="submit">upload</button>
     </form>
 
-    <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
+    <h1><?php echo htmlspecialchars($sessionID) ?></h1>
 
     <?php if ($sessionID != 'NO ID FOUND'): ?>
         <form action="/CloudSound/logout" method="post">
@@ -73,12 +73,7 @@
             <?php foreach ($songs as $song): ?>
                 <div id="playerBorder">
                     <div id="playerAlbumCover"
-<<<<<<<<< Temporary merge branch 1
                         style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
-=========
-                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
-                    </div>
->>>>>>>>> Temporary merge branch 2
 
                     <div id="titleAndSoContainer">
                         <div id="titleAndDate">
@@ -125,8 +120,7 @@
     </div>
 
     <script src="./Js/Main.js"></script>
-    <script src="./Js/audioplayer.js" ></script>
-    <script src="./Js/main.js" ></script>
+    <script src="./Js/audioplayer.js"></script>
 </body>
 
 </html>
