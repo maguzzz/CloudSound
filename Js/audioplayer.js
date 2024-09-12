@@ -1,5 +1,5 @@
 // Fade-out duration
-const fadeDuration = 700;
+const fadeDuration = 400;
 
 // Function to fade out audio
 function fadeOut(audioElement, playButton) {

@@ -152,7 +152,11 @@
 
     height: 70%;
     width: 90%;
-    background-color: #D9D9D9;
+    /*background-color: #D9D9D9;*/
+    background-image: url('../Songs/53/ab67616d0000b273280689ecc5e4b2038bb5e4bd.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
 
 }
 

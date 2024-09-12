@@ -96,3 +96,12 @@ function DBGetSongs($parameter = null)
         return $allSongs;
     }
 }
+
+function getUser($userId = NULL) {
+
+    if ($userId != NULL) {
+        return R::findOne('user', 'id = ?', [$userId]);
+    }
+    return R::findAll('user');
+
+}
