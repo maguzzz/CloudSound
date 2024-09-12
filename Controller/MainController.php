@@ -16,6 +16,12 @@ class MainController {
         Flight::render('main');
     }
 
+    public function search() {
+
+        $this->index(Flight::request()->data->searchField);
+
+    }    
+
 
 
     public function createUser() {
@@ -52,14 +58,12 @@ class MainController {
     }
     
 
-public function logout() {
-    session_start();
-    $_SESSION = array();
+    public function logout() {
+        session_start();
+        $_SESSION = array();
 
-    session_destroy(); 
-    Flight::redirect('/');
-}
-
-    
+        session_destroy(); 
+        Flight::redirect('/');
+    }
 
 }

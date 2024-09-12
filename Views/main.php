@@ -70,7 +70,7 @@
 
     <br><br><br><br><br>
 
-    <form id="searchForm" action="/CloudSound/search" method="get" enctype="multipart/form-data">
+    <form id="searchForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
         <input type="text" name="searchField" placeholder="Search">
         <input type="submit" value="search">
     </form>

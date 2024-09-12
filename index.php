@@ -10,6 +10,7 @@ require 'Controller/MainController.php';
 $mainController = new MainController();
 
 Flight::route('GET  /', array($mainController, 'index'));
+Flight::route('POST /', array($mainController, 'search'));
 
 Flight::route('POST /register', array($mainController,'createUser'));
 
@@ -18,7 +19,5 @@ Flight::route('POST /logout', array($mainController,'logout'));
 
 Flight::route('GET  /upload', array($uploadController, 'index'));
 Flight::route('POST /upload', array($uploadController, 'upload'));;
-
-Flight::route('GET /search', function() { echo('lol'); });
 
 Flight::start();
