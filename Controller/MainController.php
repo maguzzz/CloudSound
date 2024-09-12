@@ -13,8 +13,21 @@ class MainController {
     public function createUser() {
 
         session_start();
-        DBcreateUser(Flight::request()->data->username, Flight::request()->data->email, Flight::request()->data->password);
-        session_destroy();
+
+        if(isset(Flight::request()->data->loginEmail)){
+            
+            loginUser(Flight::request()->data->loginEmail, Flight::request()->data->loginPassword);
+            
+        }
+
+        if(Flight::request()->data->password == Flight::request()->data->confirmPassword) {
+            DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->password);
+        } else {
+            Flight::redirect("/");
+        }
+       
+
+        
 
     }
 

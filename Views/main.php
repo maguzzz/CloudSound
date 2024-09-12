@@ -10,14 +10,21 @@
 
 <body>
 
+    <form id="registerForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
 
-    <form action="/CloudSound/" method="post" enctype="multipart/form-data">
-
-        <input type="text" name="username" placeholder="username" required>
-        <input type="text" name="email" placeholder="email" required>
-        <input type="text" name="password" placeholder="password" required>
+        <input type="text" name="registerName" placeholder="Name" required>
+        <input type="text" name="registerEmail" placeholder="Email" required>
+        <input type="text" name="password" placeholder="Password" required>
+        <input type="text" name="confirmPassword" placeholder="Confirm Password" required>
         <input type="submit" value="register">
 
+    </form></br></br></br></br>
+
+
+    <form id="loginForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+        <input type="text" name="loginEmail" placeholder="Email" required>
+        <input type="text" name="loginPassword" placeholder="Password" required>
+        <input type="submit" value="login">    
     </form>
 
 
