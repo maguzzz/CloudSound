@@ -1,5 +1,4 @@
 <?php
-
 //include 'Database/connectionDB.php';
 require_once 'library/flight/Flight.php';
 
