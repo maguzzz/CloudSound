@@ -2,9 +2,15 @@
 
 /* Player */
 
+#PageCont{
+    padding-top: 3em;
+    height: auto;
+    width: 65%;
+    margin: auto;
+}
 #MusicPlayerContainer {
     margin-top: 10em;
-    width: 99vw;
+    width: 100%;
     height: auto;
     display: flex;
     justify-content: center;
@@ -15,7 +21,7 @@
 }
 
 #playerBorder {
-    width: 65%;
+    width: 100%;
     height: 15em;
     margin-bottom: 4vw;
     display: flex;
@@ -26,7 +32,7 @@
 #playerAlbumCover {
     background-size: cover; 
     background-position: center;
-    background-color: red;
+    background-color: rgb(145, 145, 145);
     background-repeat: no-repeat;
     width: 20%;
     height: 100%;
@@ -57,6 +63,7 @@
 }
 
 #songTitle {
+    font-family: InterBold;
     height: 70%;
     font-size: 2.5em;
 }
@@ -276,4 +283,68 @@ input[type="range"]::-moz-range-thumb {
 .close-btn .close-img {
     width: 60px;  
     height: 60px; 
+}
+
+
+body, #actionBar, #searchForm, #searchbar, #uploadForm, #openLoginDialog, button, .custom-button {
+    font-size:  1em; 
+    color: black;
+}
+
+#actionBar {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin: auto;
+    align-items: center;
+    border: none; 
+}
+
+#WebsiteTitle{
+    font-family: InterBold;
+    width: auto;
+    font-size: 2.5em;
+    padding-right: .5em;
+}
+#searchForm {
+    width: 58%; 
+    padding-right: 1em;
+}
+
+#searchbar {
+    width: 100%;
+    background-color: #D9D9D9;
+    color: black;
+    padding: 10px; 
+    border: none; 
+}
+
+#uploadForm{
+    background-color: #D9D9D9;
+    float: left;
+    margin-right: 2em;
+}
+
+#openLoginDialog {
+    background-color: #D9D9D9; 
+}
+button {
+    padding: 10px 15px;
+    border: none;
+    cursor: pointer;
+    background-color: #D9D9D9;
+    color: black;
+}
+
+button:hover, .custom-button:hover {
+    background-color: #D9D9D9; 
+    color: black;
+}
+
+.custom-button {
+    border: none;
+    border-radius: 0;
+    padding: 10px 20px;
+    background-color: #D9D9D9;
+    cursor: pointer;
 }
