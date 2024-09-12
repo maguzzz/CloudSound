@@ -38,7 +38,7 @@ function DbFindUserId($uEmail, $uPassword)
 {
   $checkUser = R::findOne('user', 'user_email = ? AND user_password = ?', [$uEmail, $uPassword]);
 
-    return $checkUser->id;
+    return $checkUser;
 }
 
 

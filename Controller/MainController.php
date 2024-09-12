@@ -19,8 +19,8 @@ class MainController {
 
 
     public function createUser() {
-
         session_start();
+
         if(Flight::request()->data->registerPassword == Flight::request()->data->registerConfirmPassword && isset(Flight::request()->data->registerName)){
             DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->registerPassword);
         } else {
@@ -30,24 +30,24 @@ class MainController {
 
     public function setSession() {
         session_start();
+
         $loginEmail = Flight::request()->data->loginEmail ?? null;
         $loginPassword = Flight::request()->data->loginPassword ?? null;
     
         if ($loginEmail && $loginPassword) {
             $userId = DbFindUserId($loginEmail, $loginPassword);
-            $_SESSION['id'] =  "FoundData";
-        
+
             if ($userId) {
-                $_SESSION['id'] = $userId;
+                $_SESSION['id'] = $userId['id'];
+                $_SESSION['name'] = $userId['name'];
             } else {
-                // Handle login failure (e.g., set an error message)
+                // Login Fail
                 $_SESSION['id'] =  "ERROR 1";
             }
         } else {
-            // Handle missing input
+            // No Input
             $_SESSION['id'] =  "ERROR 2";
         }
-
         Flight::redirect("/");
     }
     
