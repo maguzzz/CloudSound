@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/main.css">
+    
     <title>Document</title>
 </head>
 
@@ -24,7 +25,7 @@
     <form id="loginForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
         <input type="text" name="loginEmail" placeholder="Email" required>
         <input type="text" name="loginPassword" placeholder="Password" required>
-        <input type="submit" value="login">    
+        <input type="submit" value="login">
     </form>
 
 
@@ -35,7 +36,9 @@
             <?php foreach ($songs as $song): ?>
 
                 <div id="playerBorder">
-                    <div id="playerAlbumCover" style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
+                    <div id="playerAlbumCover"
+                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
+                    </div>
 
                     <div id="titleAndSoContainer">
                         <div id="titleAndDate">
@@ -52,11 +55,25 @@
                                 <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
                                 <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
                             </div>
+
                             <div id="playerContainer">
-                                <audio id="player" controls>
-                                    <source src="Songs/Song/song1.mp3" type="audio/mpeg">
-                                </audio>
+                                <div id="audioControls">
+                                    <div id="seekSliderContainer">
+                                        <input type="range" id="seekSlider" value="0">
+                                    </div>
+                                    <div id="buttonsAndVolume">
+                                        <audio src="./Songs/Song/ss.mp3" preload="metadata" loop></audio>
+                                        <button id="SecBack" ></button>
+                                        <button id="playIcon" value="Play"></button>
+                                        <button id="SecForward" ></button>
+                                        <input type="range" id="volumeSlider" value="100">
+                                    
+                                    </div>
+
+                                </div>
                             </div>
+
+
                         </div>
 
                     </div>
@@ -67,6 +84,7 @@
             <p>No songs available.</p>
         <?php endif; ?>
     </div>
+    <script src="./Js/audioplayer.js" ></script>
 </body>
 
 </html>
