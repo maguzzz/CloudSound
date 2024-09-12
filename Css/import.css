@@ -1,0 +1,10 @@
+@font-face {
+    font-family: "InterMedium";
+    src: url("../Fonts/Inter_Medium.ttf");
+}
+
+
+* {
+    background-color: white;
+    font-family: InterMedium;
+}
