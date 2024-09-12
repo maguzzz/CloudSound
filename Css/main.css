@@ -39,6 +39,7 @@
 #titleAndSoContainer {
     width: 80%;
     height: 100%;
+    padding-left: 5px;
 }
 
 #titleAndDate{
@@ -98,12 +99,175 @@
 
 }
 
+
+
+
+/* Player */
+
 #playerContainer {
     display: flex;
     justify-content: center;
     height: 25%;
+    width: 100%;
 }
 
-#player {
+#audioControls {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 15%;
 
+}
+
+#seekSliderContainer {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#seekSlider {
+    width: 100%;
+}
+
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+
+input[type="range"]::-webkit-slider-runnable-track {
+    background: black;
+    height: 0.5rem;
+}
+
+input[type="range"]::-moz-range-track {
+    background: black;
+    height: 0.5rem;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    margin-top: -5px;
+    background-color: black;
+    height: 1rem;
+    width: 1rem;    
+}
+
+
+input[type="range"]::-moz-range-thumb {
+    border: none; 
+    border-radius: 0; 
+    background-color: black;
+    height: 1rem;
+    width: 1rem;
+}
+
+
+
+
+
+
+
+
+#playIcon{
+    width: 5em;
+    border: none;
+    background-image: url(../Resources/Icons/Play.png);
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+#buttonsAndVolume{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+#SecForward {
+    width: 5em;
+    border: none;
+    background-image: url(../Resources/Icons/Forward.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+
+#SecBack {
+    width: 5em;
+    border: none;
+    background-image: url(../Resources/Icons/Back.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    
+}
+
+
+#LoginDialog{
+    width: 100vw;
+    height: 100vh;
+    position:fixed;
+    top:0;
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.685);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+
+#registerForm{
+    background-color: transparent;
+    margin: auto;
+    margin-top:10%;
+    height: 20em;
+    align-items: start;
+    width: 40%;
+}
+
+#registerForm input[type="text"],
+#registerForm input[type="submit"] {
+    background-color: #D9D9D9;
+    height: 3em;
+    border-style: none;
+    display: block; 
+    width: 100%; 
+    margin-bottom: 25px; 
+    font-size: 1.3em;
+    padding: 10px; 
+    box-sizing: border-box;
+}
+
+
+#registerForm input[type="submit"] {
+    background-color: #D9D9D9; 
+    border: none;
+    cursor: pointer;
+    width: 20%;
+    float: right;
+}
+
+#RegLogQ{
+    float: left;
+    font-size: 1.3em;
+    width: 80%;
+    text-decoration: none;
+}
+
+.close-btn {
+    background: none;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+    position: absolute;
+    top: 10px; /* Adjust as needed */
+    right: 10px; /* Adjust as needed */
+}
+
+/* Image styling for the close button */
+.close-btn .close-img {
+    width: 20px;  /* Adjust size as needed */
+    height: 20px; /* Adjust size as needed */
 }
