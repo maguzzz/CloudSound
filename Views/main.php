@@ -107,12 +107,16 @@
                                         <input type="range" class="seekSlider"  id="seekSlider" value="0">
                                     </div>
                                     <div id="buttonsAndVolume">
-                                        <audio class="audio-player" src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
-                                        <button class="SecBack" id="SecBack" ></button>
-                                        <button class="playIcon" id="playIcon" value="Play"></button>
-                                        <button class="SecForward" id="SecForward" ></button>
-                                        <input type="range" class="volumeSlider" id="volumeSlider" value="100">
-                                    
+                                        <div id="space"></div>
+                                        <div id="buttonsBox">
+                                            <audio class="audio-player" src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
+                                            <button class="SecBack" id="SecBack" ></button>
+                                            <button class="playIcon" id="playIcon" value="Play"></button>
+                                            <button class="SecForward" id="SecForward" ></button>
+                                        </div>
+                                        <div id="volumeBox">
+                                            <input type="range" class="volumeSlider" id="volumeSlider" value="100">     
+                                        </div>
                                     </div>
 
                                 </div>
@@ -130,6 +134,8 @@
     </div>
 
     <script src="./Js/audioplayer.js" ></script>
+    <script src="./Js/main.js" ></script>
+
 
 </body>
 

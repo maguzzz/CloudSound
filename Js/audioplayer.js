@@ -67,6 +67,7 @@ function initializeAudioPlayer(playerContainer) {
             state = 'play';
         }
 
+        playButton.style.width = "5em";
         playButton.style.backgroundRepeat = "no-repeat";
         playButton.style.backgroundPosition = "center";
         playButton.style.backgroundSize = "contain";

@@ -96,7 +96,6 @@
     text-align: center;
     font-size: 1em;
 
-
 }
 
 /* Player */
@@ -163,19 +162,14 @@ input[type="range"]::-moz-range-thumb {
     width: 1rem;
 }
 
-
-
-
-
-
-
-
 #playIcon{
     width: 5em;
     border: none;
+    height: 100%;
     background-image: url(../Resources/Icons/Play.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-color: transparent;
 }
 
 #buttonsAndVolume{
@@ -187,22 +181,44 @@ input[type="range"]::-moz-range-thumb {
 #SecForward {
     width: 5em;
     border: none;
+    height: 100%;
     background-image: url(../Resources/Icons/Forward.png);
     background-repeat: no-repeat;
     background-position: center;
+    background-color: transparent;
     
 }
-
 
 #SecBack {
     width: 5em;
     border: none;
+    height: 100%;
     background-image: url(../Resources/Icons/Back.png);
     background-repeat: no-repeat;
     background-position: center;
-    
+    background-color: transparent;
+
 }
 
+#space {
+    width: 10%;
+}
+
+#buttonsBox {
+    height: 100%;
+    width: 90%;
+    display: flex;
+    justify-content: center;
+}
+
+#volumeBox {
+    align-self: self-end;
+}
+
+
+
+
+/* Register and Login */
 #RegisterDialog{
     width: 100vw;
     height: 100vh;
