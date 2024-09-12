@@ -11,7 +11,7 @@
 
 <body>
 
-    <form id="registerForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+    <form id="registerForm" action="/CloudSound/register" method="post" enctype="multipart/form-data">
 
         <input type="text" name="registerName" placeholder="Name" required>
         <input type="text" name="registerEmail" placeholder="Email" required>
@@ -32,7 +32,6 @@
         <button type="submit">upload</button>
     </form>
 
-
     <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
 
     <?php if ($sessionID != 'NO ID FOUND'): ?>
@@ -40,6 +39,13 @@
             <input type="submit" value="logout"></button>
         </form>
     <?php endif; ?>
+
+    <br><br><br><br><br>
+
+    <form id="searchForm" action="/CloudSound/search" method="get" enctype="multipart/form-data">
+        <input type="text" name="searchField" placeholder="Search">
+        <input type="submit" value="search">
+    </form>
 
     <div id="MusicPlayerContainer">
 
