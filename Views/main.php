@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="Css/main.css">
+    
     <title>Document</title>
 </head>
 
@@ -27,11 +28,13 @@
         <input type="submit" value="login">
     </form>
 
-    <h1><?php echo htmlspecialchars($sessionID) ?></h1>
+    <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
 
-    <form action="/CloudSound/logout" method="post">
-        <input type="submit">Logout</button>
-    </form>
+    <?php if ($sessionID != 'NO ID FOUND'): ?>
+        <form action="/CloudSound/logout" method="post">
+            <input type="submit" value="logout"></button>
+        </form>
+    <?php endif; ?>
 
     <div id="MusicPlayerContainer">
 
@@ -58,7 +61,7 @@
                                 <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
                             </div>
                             <div id="playerContainer">
-                                <audio id="player" controls>
+                                <audio id="player" class="audio-player" controls>
                                     <source src="<?php echo $song->songAudio ?>" type="audio/mpeg">
                                 </audio>
                             </div>
@@ -71,6 +74,8 @@
             <p>No songs available.</p>
         <?php endif; ?>
     </div>
+
+    <script src="./Js/Main.js"></script>
 </body>
 
 </html>

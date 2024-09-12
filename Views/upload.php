@@ -56,6 +56,7 @@ require_once 'library/flight/Flight.php';
                     <option value="Eminem">Eminem</option>
                     <option value="Juice Wrld">Juice Wrld</option>
                     <option value="Young Thug">Young Thug</option>
+                    <option value="Timbaland">Timbaland</option>
                 </select>
 
                 <select id="tag" name="producer">
@@ -67,6 +68,7 @@ require_once 'library/flight/Flight.php';
                     <option value="Kenny Beats">Kenny Beats</option>
                     <option value="Boi 1da">Boi 1da</option>
                     <option value="Jahaan Sweet">Jahaan Sweet</option>
+                    <option value="T-Minus">T-Minus</option>
                 </select>
 
             </div> 
