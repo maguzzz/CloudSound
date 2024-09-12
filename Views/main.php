@@ -75,14 +75,14 @@
                             <div id="playerContainer">
                                 <div id="audioControls">
                                     <div id="seekSliderContainer">
-                                        <input type="range" id="seekSlider" value="0">
+                                        <input type="range" class="seekSlider"  id="seekSlider" value="0">
                                     </div>
                                     <div id="buttonsAndVolume">
-                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
-                                        <button id="SecBack" ></button>
-                                        <button id="playIcon" value="Play"></button>
-                                        <button id="SecForward" ></button>
-                                        <input type="range" id="volumeSlider" value="100">
+                                        <audio class="audio-player" src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
+                                        <button class="SecBack" id="SecBack" ></button>
+                                        <button class="playIcon" id="playIcon" value="Play"></button>
+                                        <button class="SecForward" id="SecForward" ></button>
+                                        <input type="range" class="volumeSlider" id="volumeSlider" value="100">
                                     
                                     </div>
 
@@ -100,8 +100,8 @@
         <?php endif; ?>
     </div>
 
-    <script src="./Js/Main.js"></script>
     <script src="./Js/audioplayer.js" ></script>
+
 </body>
 
 </html>
