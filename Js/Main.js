@@ -1,22 +1,21 @@
 const audioPlayers = document.querySelectorAll('.audio-player');
-const fadeDuration = 700; // Dauer der Ausblendung in Millisekunden (hier 1 Sekunde)
+const fadeDuration = 700;
 
 function fadeOut(audio) {
-    const interval = 50; // Interval für die Lautstärke-Reduzierung
-    const step = interval / fadeDuration; // Schrittweite für die Lautstärke-Reduzierung
+    const interval = 50;
+    const step = interval / fadeDuration;
     let volume = audio.volume;
-    const originalVolume = volume; // Speichern der ursprünglichen Lautstärke
+    const originalVolume = volume;
 
     const fadeOutInterval = setInterval(() => {
         volume -= step;
         if (volume <= 0) {
             clearInterval(fadeOutInterval);
             audio.pause();
-            audio.currentTime = 0; // Setze die Wiedergabeposition auf 0
-            // Wiederherstellen der ursprünglichen Lautstärke
+            audio.currentTime = 0;
             setTimeout(() => {
                 audio.volume = originalVolume;
-            }, 100); // Kurze Verzögerung, um die Lautstärke nach der Pause wiederherzustellen
+            }, 100);
         } else {
             audio.volume = volume;
         }

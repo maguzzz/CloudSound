@@ -28,6 +28,11 @@
         <input type="submit" value="login">
     </form>
 
+    <form action="/CloudSound/upload" method="get">
+        <button type="submit">upload</button>
+    </form>
+
+
     <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
 
     <?php if ($sessionID != 'NO ID FOUND'): ?>
