@@ -13,26 +13,33 @@ if (!$isConn) {
     print "DB CONNECTION FAILED'";
 }
 
-function DBcreateUser($uName,$uEmail,$uPassword)
+function DBcreateUser($uName, $uEmail, $uPassword)
 {
-    $user = R::dispense(typeOrBeanArray: 'user');    
+    $user = R::dispense(typeOrBeanArray: 'user');
     $checkUser = R::findOne('user');
 
-    if($checkUser) { 
+    if ($checkUser) {
         echo "user already exists: " . $checkUser->userName;
     } else {
 
-    
+
         $user->userName = $uName;
         $user->userEmail = $uEmail;
         $user->userPassword = $uPassword;
-    
+
         R::store($user);
     }
-    $_SESSION['id'] = $checkUser->id;
+}
 
 
+function DbFindUser($uEmail, $uPassword)
+{
+  $checkUser = R::findOne('user', 'user_email = ? AND user_password = ?', [$uEmail, $uPassword]);
 
+        $_SESSION['id'] = $checkUser->id;
+
+        echo "<script>console.log('Debug Objects' );</script>";
+    
 }
 
 
@@ -63,12 +70,13 @@ function DBsubmitSong($sCreatorId, $sName, $sDescription, $sGenre, $sArtist, $sF
     return $song->id;
 }
 
-function DBreassignSongSource($sId, $sImage, $sAudio) {
+function DBreassignSongSource($sId, $sImage, $sAudio)
+{
 
     $song = R::load('song', $sId);
 
     if (!$song->id) {
-        print('ERROR: SONG NOt FOUND');
+        print ('ERROR: SONG NOT FOUND');
         return;
     }
 
@@ -79,12 +87,13 @@ function DBreassignSongSource($sId, $sImage, $sAudio) {
 }
 
 
-function DBGetSongs($parameter = null){
-    if($parameter != null){
-        $searchSong = R::find( 'song', ' song_name LIKE ? ', ['%'.$parameter .'%'] );
-        print(implode(",",$searchSong));
-    }else{
+function DBGetSongs($parameter = null)
+{
+    if ($parameter != null) {
+        $searchSong = R::find('song', ' song_name LIKE ? ', ['%' . $parameter . '%']);
+        return $searchSong;
+    } else {
         $allSongs = R::findAll('song');
-        print(implode(",",$allSongs));
+        return $allSongs;
     }
 }

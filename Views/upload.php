@@ -33,7 +33,7 @@ require_once 'library/flight/Flight.php';
                 <input type="text" id="songName" name="songName" placeholder="Name"> <br>
             </div>
             <div id="songDescriptionContainer">
-                <input type="text" id="songDescription" name="songDescription" placeholder="Description">
+                <textarea  type="text" id="songDescription" name="songDescription" placeholder="Description"></textarea>
             </div>
             <div id="tagContainer">
                 <select name="genre" id="tag">
