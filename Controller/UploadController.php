@@ -11,11 +11,18 @@ class UploadController
 
     public function index()
     {
+        session_start();
+
+        if (isset($_SESSION['id'])) {
+            echo "ID: " . $_SESSION['id'];
+        }
+
         Flight::render('upload');
     }
 
     public function upload()
     {
+        session_start();
 
         $songName = Flight::request()->data->songName;
         $songDescription = Flight::request()->data->songDescription;
@@ -24,7 +31,7 @@ class UploadController
         $songFeature = Flight::request()->data->feature;
         $songProducer = Flight::request()->data->producer;
 
-        $songId = DBsubmitSong('creatorID', $songName, $songDescription, $songGenre, $songArtist, $songFeature, $songProducer);
+        $songId = DBsubmitSong($_SESSION['id'], $songName, $songDescription, $songGenre, $songArtist, $songFeature, $songProducer);
 
         //Ordner erstellen
         $dirPath = 'Songs/' . $songId;
