@@ -14,8 +14,8 @@
 
         <input type="text" name="registerName" placeholder="Name" required>
         <input type="text" name="registerEmail" placeholder="Email" required>
-        <input type="text" name="password" placeholder="Password" required>
-        <input type="text" name="confirmPassword" placeholder="Confirm Password" required>
+        <input type="text" name="registerPassword" placeholder="Password" required>
+        <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
         <input type="submit" value="register">
 
     </form></br></br></br></br>

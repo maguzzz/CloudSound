@@ -16,12 +16,12 @@ class MainController {
 
         if(isset(Flight::request()->data->loginEmail)){
             
-            loginUser(Flight::request()->data->loginEmail, Flight::request()->data->loginPassword);
+            DbFindUser(Flight::request()->data->loginEmail, Flight::request()->data->loginPassword);
             
         }
 
-        if(Flight::request()->data->password == Flight::request()->data->confirmPassword) {
-            DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->password);
+        if(Flight::request()->data->registerPassword == Flight::request()->data->registerConfirmPassword && isset(Flight::request()->data->registerName)){
+            DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->registerPassword);
         } else {
             Flight::redirect("/");
         }
