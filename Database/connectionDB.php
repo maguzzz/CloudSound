@@ -16,7 +16,8 @@ if (!$isConn) {
 function DBcreateUser($uName, $uEmail, $uPassword)
 {
     $user = R::dispense(typeOrBeanArray: 'user');
-    $checkUser = R::findOne('user');
+    $checkUser = R::findAll('user');
+    $checkUser  = R::findOne( 'user', ' user_name = ?', [$uName ] );
 
     if ($checkUser) {
         echo "user already exists: " . $checkUser->userName;
@@ -28,18 +29,16 @@ function DBcreateUser($uName, $uEmail, $uPassword)
         $user->userPassword = $uPassword;
 
         R::store($user);
+        echo "user created: " . $uName;
     }
 }
 
 
-function DbFindUser($uEmail, $uPassword)
+function DbFindUserId($uEmail, $uPassword)
 {
   $checkUser = R::findOne('user', 'user_email = ? AND user_password = ?', [$uEmail, $uPassword]);
 
-        $_SESSION['id'] = $checkUser->id;
-
-        echo "<script>console.log('Debug Objects' );</script>";
-    
+    return $checkUser;
 }
 
 

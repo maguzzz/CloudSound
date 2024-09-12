@@ -37,34 +37,45 @@ require_once 'library/flight/Flight.php';
             </div>
             <div id="tagContainer">
                 <select name="genre" id="tag">
-                    <option value="r_and_b">R&B</option>
-                    <option value="jazz">Trap</option>
-                    <option value="rock">Rock</option>
-                    <option value="pop">Pop</option>
+                    <option value="R&B">R&B</option>
+                    <option value="Trap">Trap</option>
+                    <option value="Rock">Rock</option>
+                    <option value="Pop">Pop</option>
+                    <option value="Drill">Drill</option>
                 </select>
 
                 <select name="artist" id="tag">
-                    <option value="j_cole">J Cole</option>
-                    <option value="jid">J.I.D</option>
-                    <option value="drake">Drake</option>
-                    <option value="travis_scott">Travis Scott</option>
+                    <option value="J. Cole">J. Cole</option>
+                    <option value="J.I.D">J.I.D</option>
+                    <option value="Drake">Drake</option>
+                    <option value="Travis Scott">Travis Scott</option>
                 </select>
 
                 <select name="feature" id="tag">
-                    <option value="21_savage">21 Savage</option>
-                    <option value="eminem">Eminem</option>
-                    <option value="juice_wrld">Juice Wrld</option>
-                    <option value="young_thug">Young Thug</option>
+                    <option value="21 Savage">21 Savage</option>
+                    <option value="Eminem">Eminem</option>
+                    <option value="Juice Wrld">Juice Wrld</option>
+                    <option value="Young Thug">Young Thug</option>
                 </select>
 
-                <select name="producer" id="tag">
+                <select id="tag" name="producer">
                     <option value="OZ">OZ</option>
                     <option value="Vinylz">Vinylz</option>
                     <option value="Wondagurl">Wondagurl</option>
                     <option value="Cubeatz">Cubeatz</option>
+                    <option value="Dj Dahi">Dj Dahi</option>
+                    <option value="Kenny Beats">Kenny Beats</option>
+                    <option value="Boi 1da">Boi 1da</option>
+                    <option value="Jahaan Sweet">Jahaan Sweet</option>
                 </select>
 
-            </div> <input type="submit" id="songUpload" value="Upload">
+            </div> 
+
+            <input id="songAudio" name="songAudio" type="file" accept="audio/wav, audio/mpeg" placeholder="Audio">
+            <label id="uploadContainer" for="songAudio"></label>
+
+            <input type="submit" id="songUpload" value="Upload">
+
         </div>
     </form>
 

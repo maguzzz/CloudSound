@@ -6,29 +6,59 @@ require_once './Database/connectionDB.php';
 class MainController {
 
     public function index() {
-        Flight::view()->set('songs',  DBGetSongs());
+        session_start();
+        Flight::view()->set('songs', DBGetSongs());    
+                    
+        $sessionId = $_SESSION['id'] ?? "NO ID FOUND";
+        Flight::view()->set('sessionID', $sessionId);
+
         Flight::render('main');
     }
 
+
+
     public function createUser() {
-
         session_start();
-
-        if(isset(Flight::request()->data->loginEmail)){
-            
-            DbFindUser(Flight::request()->data->loginEmail, Flight::request()->data->loginPassword);
-            
-        }
 
         if(Flight::request()->data->registerPassword == Flight::request()->data->registerConfirmPassword && isset(Flight::request()->data->registerName)){
             DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->registerPassword);
         } else {
             Flight::redirect("/");
         }
-       
-
-        
-
     }
+
+    public function setSession() {
+        session_start();
+
+        $loginEmail = Flight::request()->data->loginEmail ?? null;
+        $loginPassword = Flight::request()->data->loginPassword ?? null;
+    
+        if ($loginEmail && $loginPassword) {
+            $userId = DbFindUserId($loginEmail, $loginPassword);
+
+            if ($userId) {
+                $_SESSION['id'] = $userId['id'];
+                $_SESSION['name'] = $userId['name'];
+            } else {
+                // Login Fail
+                $_SESSION['id'] =  "ERROR 1";
+            }
+        } else {
+            // No Input
+            $_SESSION['id'] =  "ERROR 2";
+        }
+        Flight::redirect("/");
+    }
+    
+
+public function logout() {
+    session_start();
+    $_SESSION = array();
+
+    session_destroy(); 
+    Flight::redirect('/');
+}
+
+    
 
 }

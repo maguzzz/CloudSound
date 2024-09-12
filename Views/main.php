@@ -21,21 +21,26 @@
     </form></br></br></br></br>
 
 
-    <form id="loginForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+    <form id="loginForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
         <input type="text" name="loginEmail" placeholder="Email" required>
         <input type="text" name="loginPassword" placeholder="Password" required>
-        <input type="submit" value="login">    
+        <input type="submit" value="login">
     </form>
 
+    <h1><?php echo htmlspecialchars($sessionID) ?></h1>
+
+    <form action="/CloudSound/logout" method="post">
+        <input type="submit">Logout</button>
+    </form>
 
     <div id="MusicPlayerContainer">
 
 
         <?php if (isset($songs) && count($songs) > 0): ?>
             <?php foreach ($songs as $song): ?>
-
                 <div id="playerBorder">
-                    <div id="playerAlbumCover" style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
+                    <div id="playerAlbumCover"
+                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
 
                     <div id="titleAndSoContainer">
                         <div id="titleAndDate">
@@ -54,14 +59,13 @@
                             </div>
                             <div id="playerContainer">
                                 <audio id="player" controls>
-                                    <source src="Songs/Song/song1.mp3" type="audio/mpeg">
+                                    <source src="<?php echo $song->songAudio ?>" type="audio/mpeg">
                                 </audio>
                             </div>
                         </div>
 
                     </div>
                 </div>
-
             <?php endforeach; ?>
         <?php else: ?>
             <p>No songs available.</p>

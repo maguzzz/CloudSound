@@ -11,11 +11,18 @@ class UploadController
 
     public function index()
     {
+        session_start();
+
+        if (isset($_SESSION['id'])) {
+            echo "ID: " . $_SESSION['id'];
+        }
+
         Flight::render('upload');
     }
 
     public function upload()
     {
+        session_start();
 
         $songName = Flight::request()->data->songName;
         $songDescription = Flight::request()->data->songDescription;
@@ -23,10 +30,11 @@ class UploadController
         $songArtist = Flight::request()->data->artist;
         $songFeature = Flight::request()->data->feature;
         $songProducer = Flight::request()->data->producer;
-        $songId = DBsubmitSong('creatorID', $songName, $songDescription, $songGenre, $songArtist, $songFeature, $songProducer);
-        $dirPath = 'Songs/' . $songId;
+
+        $songId = DBsubmitSong($_SESSION['id'], $songName, $songDescription, $songGenre, $songArtist, $songFeature, $songProducer);
 
         //Ordner erstellen
+        $dirPath = 'Songs/' . $songId;
         if (!is_dir($dirPath)) {
 
             if (mkdir($dirPath, 0777, true)) {
@@ -39,21 +47,32 @@ class UploadController
             echo 'Ordner existiert bereits: ' . $dirPath;
         }
 
-        $fileTmpPath = $_FILES['songImageUploader']['tmp_name'];
-        $fileName = $_FILES['songImageUploader']['name'];
-        $fileNameCmps = explode(".", $fileName);
-        $fileExtension = strtolower(end($fileNameCmps));
+        //Cover speichern
+        $coverFileTmpPath = $_FILES['songImageUploader']['tmp_name'];
+        $coverFileName = $_FILES['songImageUploader']['name'];
 
-        $dest_path = './Songs/' . $songId . '/' . $fileName;
+        $coverDestPath = './Songs/' . $songId . '/' . $coverFileName;
 
-        // Verschiebe die hochgeladene Datei in das Zielverzeichnis
-        if (move_uploaded_file($fileTmpPath, $dest_path)) {
-            echo 'Bild erfolgreich hochgeladen! Pfad: ' . $dest_path;
+        if (move_uploaded_file($coverFileTmpPath, $coverDestPath)) {
+            echo 'Bild erfolgreich hochgeladen! Pfad: ' . $coverDestPath;
         } else {
             echo 'Fehler beim Hochladen des Bildes.';
         }
 
-        DBreassignSongSource($songId, './Songs/' . $songId . '/' . $fileName, 'test.mp3');
+
+        //Song hochladen
+        $audioFileTmpPath = $_FILES['songAudio']['tmp_name'];
+        $audioFileName = $_FILES['songAudio']['name'];
+
+        $audioDestPath = './Songs/' . $songId . '/' . $audioFileName;
+
+        if (move_uploaded_file($audioFileTmpPath, $audioDestPath)) {
+            echo 'Audiodatei erfolgreich hochgeladen! Pfad: ' . $audioDestPath;
+        } else {
+            echo 'Fehler beim Hochladen der Audiodatei.';
+        }
+
+        DBreassignSongSource($songId, $coverDestPath, $audioDestPath);
 
         DBGetSongs();
 
