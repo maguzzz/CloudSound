@@ -82,7 +82,8 @@
             <?php foreach ($songs as $song): ?>
                 <div id="playerBorder">
                     <div id="playerAlbumCover"
-                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');"></div>
+                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
+                    </div>
 
                     <div id="titleAndSoContainer">
                         <div id="titleAndDate">
