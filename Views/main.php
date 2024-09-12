@@ -14,35 +14,40 @@
 
 
 
-    <dialog id="RegisterDialog">
-        <button class="close-btn" id="closeRegisterDialog">
-            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-        </button>
-        <form id="registerForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
-            <input type="text" name="registerName" placeholder="Name" required>
-            <input type="text" name="registerEmail" placeholder="Email" required>
-            <input type="text" name="registerPassword" placeholder="Password" required>
-            <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
-            <div>
-                <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
-                <input type="submit" value="Register">
-            </div>
-        </form>
-    </dialog>
+<button type="button" id="openLoginDialog">Login</button>
 
-    <dialog id="LoginDialog">
-        <button class="close-btn" id="closeLoginDialog">
-            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-        </button>
-        <form id="loginForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
-            <input type="text" name="loginEmail" placeholder="Email" required>
-            <input type="text" name="loginPassword" placeholder="Password" required>
-            <div>
-                <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
-                <input type="submit" value="Login">
-            </div>
-        </form>
-    </dialog>
+<dialog id="RegisterDialog" id>
+    <button class="close-btn" id="closeRegisterDialog">
+        <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+    </button>
+    <form id="registerForm" action="/CloudSound/register" method="post" enctype="multipart/form-data">
+        <input type="text" name="registerName" placeholder="Name" required>
+        <input type="text" name="registerEmail" placeholder="Email" required>
+        <input type="text" name="registerPassword" placeholder="Password" required>
+        <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
+        <div>
+            <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
+            <input type="submit" value="Register">
+        </div>
+    </form>
+</dialog>
+
+<dialog id="LoginDialog">
+    <button class="close-btn" id="closeLoginDialog">
+        <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+    </button>
+    <form id="registerForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
+        <input type="text" name="loginEmail" placeholder="Email" required>
+        <input type="text" name="loginPassword" placeholder="Password" required>
+        <div>
+            <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
+            <input type="submit" value="Login">
+        </div>
+    </form>
+</dialog>
+
+
+
 
 
 
@@ -52,8 +57,8 @@
     <form action="/CloudSound/upload" method="get">
         <button type="submit">upload</button>
     </form>
-    
-    <button type="submit">login</button>
+
+
 
     <h1><?php echo htmlspecialchars($sessionID) ?></h1>
 
@@ -101,12 +106,13 @@
                                         <input type="range" id="seekSlider" value="0">
                                     </div>
                                     <div id="buttonsAndVolume">
-                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop class="audioplayer"></audio>
-                                        <button id="SecBack" ></button>
+                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop
+                                            class="audioplayer"></audio>
+                                        <button id="SecBack"></button>
                                         <button id="playIcon" value="Play"></button>
-                                        <button id="SecForward" ></button>
+                                        <button id="SecForward"></button>
                                         <input type="range" id="volumeSlider" value="100">
-                                    
+
                                     </div>
 
                                 </div>

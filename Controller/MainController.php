@@ -20,7 +20,7 @@ class MainController {
 
     public function createUser() {
         session_start();
-
+        echo'NMGGa';
         if(Flight::request()->data->registerPassword == Flight::request()->data->registerConfirmPassword && isset(Flight::request()->data->registerName)){
             DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->registerPassword);
         } else {

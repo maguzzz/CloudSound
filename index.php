@@ -11,7 +11,7 @@ $mainController = new MainController();
 
 Flight::route('GET  /', array($mainController, 'index'));
 
-Flight::route('POST /regiter', array($mainController,'createUser'));
+Flight::route('POST /register', array($mainController,'createUser'));
 
 Flight::route('POST /login', array($mainController,'setSession'));
 Flight::route('POST /logout', array($mainController,'logout'));
