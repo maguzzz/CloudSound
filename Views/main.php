@@ -71,11 +71,25 @@
                                 <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
                                 <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
                             </div>
+
                             <div id="playerContainer">
-                                <audio id="player" class="audio-player" controls>
-                                    <source src="<?php echo $song->songAudio ?>" type="audio/mpeg">
-                                </audio>
+                                <div id="audioControls">
+                                    <div id="seekSliderContainer">
+                                        <input type="range" id="seekSlider" value="0">
+                                    </div>
+                                    <div id="buttonsAndVolume">
+                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
+                                        <button id="SecBack" ></button>
+                                        <button id="playIcon" value="Play"></button>
+                                        <button id="SecForward" ></button>
+                                        <input type="range" id="volumeSlider" value="100">
+                                    
+                                    </div>
+
+                                </div>
                             </div>
+
+
                         </div>
 
                     </div>
@@ -87,6 +101,7 @@
     </div>
 
     <script src="./Js/Main.js"></script>
+    <script src="./Js/audioplayer.js" ></script>
 </body>
 
 </html>
