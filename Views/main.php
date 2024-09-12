@@ -28,9 +28,13 @@
         <input type="submit" value="login">
     </form>
 
+    <br><br>
+
     <form action="/CloudSound/upload" method="get">
         <button type="submit">upload</button>
     </form>
+    
+    <button type="submit">login</button>
 
     <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
 
@@ -78,7 +82,7 @@
                                         <input type="range" id="seekSlider" value="0">
                                     </div>
                                     <div id="buttonsAndVolume">
-                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop></audio>
+                                        <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop class="audioplayer"></audio>
                                         <button id="SecBack" ></button>
                                         <button id="playIcon" value="Play"></button>
                                         <button id="SecForward" ></button>
