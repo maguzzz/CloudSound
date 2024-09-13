@@ -32,9 +32,9 @@ class MainController
         session_start();
         if (Flight::request()->data->registerPassword == Flight::request()->data->registerConfirmPassword && isset(Flight::request()->data->registerName)) {
             DBcreateUser(Flight::request()->data->registerName, Flight::request()->data->registerEmail, Flight::request()->data->registerPassword);
-        } else {
-            Flight::redirect("/");
+
         }
+        Flight::redirect("/");
     }
 
     public function setSession()
