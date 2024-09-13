@@ -69,4 +69,14 @@ class MainController
         Flight::redirect('/');
     }
 
+    public function delete() {
+
+        $songId = Flight::request()->data->songId;
+
+        deleteSong($songId);
+
+        Flight::redirect('/');
+
+    }
+
 }

@@ -99,3 +99,10 @@ function DBGetSongs($parameter = null)
         return $allSongs;
     }
 }
+
+function deleteSong($songId) {
+
+    $song = R::load('song', $songId);
+    R::trash($song);
+
+}
