@@ -36,22 +36,20 @@
                 </select>
 
                 <select name="artist" id="tag">
-                    <?php foreach(getUser() as $user): ?>
-                        <option value="<?php $user['id'] ?>" <?= ($user['id'] == $_SESSION['id']) ? 'selected' : '' ?>><?= $user['user_name'] ?></option>
-                    <?php endforeach; ?>
+                        <option value="<?= $_SESSION['id'] ?>"><?= getUser($_SESSION['id'])['user_name'] ?></option>
                 </select>
 
                 <select name="feature" id="tag">
                     <option value=null></option>
                     <?php foreach(getUser() as $user): ?>
-                        <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
+                        <option value="<?= $user['id'] ?>"><?= $user['user_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
 
                 <select id="tag" name="producer">
                     <option value=null></option>
                     <?php foreach(getUser() as $user): ?>
-                        <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
+                        <option value="<?= $user['id'] ?>"><?= $user['user_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
             </div> 
