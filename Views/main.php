@@ -99,9 +99,9 @@
                                     <div id="tag"><?= ($song['songFeatures'] != 'null') ? htmlspecialchars(getUser($song['songFeatures'])['user_name']) : 'NONE'; ?></div>
                                     <div id="tag"><?= ($song['songProducer'] != 'null') ? htmlspecialchars(getUser($song['songProducer'])['user_name']) : 'NONE'; ?></div>
                                     <?php if ($song['song_artist'] == $sessionID): ?>
-                                        <form action="/CloudSound/delete" method="POST">
+                                        <form id="delButtonContainer" action="/CloudSound/delete" method="POST">
                                             <input type="hidden" name="songId" value="<?= $song['id'] ?>">
-                                            <input type="submit" value="delete">
+                                            <input id="delButton" type="submit" value="">
                                         </form>
                                     <?php endif;?>
                                 </div>
