@@ -114,8 +114,8 @@
 /* select */
 
 select {
-    -webkit-appearance: none;  /* Chrome, Safari, and other WebKit browsers */
-    -moz-appearance: none;     /* Firefox */
+    -webkit-appearance: none;  
+    -moz-appearance: none;     
     appearance: none;  
     text-align: center;
 }
@@ -159,8 +159,6 @@ select {
 }
 
 /* Song Audio */
-
-
 
 #songAudio[type="file"] {
     display: none;
