@@ -1,7 +1,7 @@
 @import url("import.css");
 
 #container {
-    height: 23em;
+    height: 28em;
     width: 100%;
     flex-direction: row;
     display: flex;
@@ -20,19 +20,17 @@
 
 #nameAndDescription {
     
-    height: 90%;
+    height: 85%;
     width: 40%;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    align-items: end;
     gap: 5%;
-    
 }
 
 
 #tagContainer {
-    width: 100%;
+    width: 99%;
     height: 15%;
     display: flex;
     gap: 12%;
@@ -42,7 +40,8 @@
 #tag {
     background-color: #D9D9D9;
     width: 50%;
-    height: 80%; 
+    height: 115%; 
+    border: none;
     font-size: 0.9em;
     display: flex;
     justify-content: center;
@@ -73,7 +72,7 @@
     background-color: #D9D9D9;
     width: 99%;           
     height: auto;        
-    font-size: 1.2em; 
+    font-size: 1em; 
     box-sizing: border-box; 
     overflow: hidden;   
     resize: none;     
@@ -82,7 +81,7 @@
 }
 
 #songDescriptionContainer {
-    height: 80%;
+    height: 85%;
     width: 100%;
 }
 
@@ -94,8 +93,8 @@
     padding: 0.5em 1em;  
     box-sizing: border-box;
     width: 99%;           
-    height: 10em;         
-    font-size: 1.2em; 
+    height: 100%;         
+    font-size: 1em; 
     overflow: auto;      
     resize: none;         
     text-align: left;     
@@ -112,12 +111,22 @@
 
 
 
+/* select */
+
+select {
+    -webkit-appearance: none;  /* Chrome, Safari, and other WebKit browsers */
+    -moz-appearance: none;     /* Firefox */
+    appearance: none;  
+    text-align: center;
+}
+
+
 
 /* Image Uploader */
 
 #imageAndImageUploader {
-    height: 90%;
-    width: 15%;
+    height: 85%;
+    width: 16%;
     gap: 5%;
 }
 
@@ -127,12 +136,12 @@
 
 #labelForUploaderImage {
     width: 100%;
-    margin-top: 5.6%;
+    margin-top: 5.5%;
     justify-content: center;
     display: flex;
     align-items: center;
     background-color: #D9D9D9;
-    height: 3em;
+    height: 69%;
     font-size: 0.9em;
 }
 
@@ -143,7 +152,7 @@
 
 #songImage {
     
-    height: 70%;
+    height: 65%;
     width: 90%;
     background-color: #D9D9D9;
 
@@ -151,28 +160,87 @@
 
 /* Song Audio */
 
+
+
 #songAudio[type="file"] {
     display: none;
 }
 
 #labelForSongAudio {
-    background-color: green;
     width: 100%;
     height: 100%;
 }
 
 #songAudioContainer {
-    height: 100%;
+    height: 70%;
     width: 100%;
+    display: flex;
+    justify-content: end;
+    flex-direction: column;
+    align-items: end;
+    gap: 20%;
+}
+
+#mp3Div {
+    background-color: #D9D9D9; 
+    width: 99%; 
+    height: 114%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
 
 #songUpload {
     border: transparent;
-    height: 15%;
-    width: 5%;
     background-color: #D9D9D9;
+    height: 100%;
     width: 10%;
+    margin-right: 1%;
     font-size: 0.9em;
+}
+
+
+#actionBar {
+    display: flex;
+    justify-content: space-between;
+    width: 60%;
+    margin: auto;
+    padding-top: 2em;
+    align-items: center;
+    border: none; 
+}
+
+
+#WebsiteTitle{
+    font-family: InterBold;
+    width: auto;
+    font-size: 2.5em;
+    padding-right: .5em;
+}
+
+
+#searchForm{
+    font-size:  1em; 
+    color: black;
+    width: 65%; 
+    padding-right: 1em;
+}
+#searchbar{
+    font-size:  1em; 
+    color: black;
+    width: 100%;
+    background-color: #D9D9D9;
+    color: black;
+    padding: 10px; 
+    border: none; 
+}
+
+#uploadForm{
+    font-size:  1em; 
+    color: black;
+    background-color: #D9D9D9;
+    float: left;
+    margin-right: 2em;
 }

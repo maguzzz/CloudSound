@@ -1,5 +1,5 @@
 const fileInput = document.getElementById('songAudio');
-const label = document.getElementById('labelForSongAudio');
+const label = document.getElementById('mp3Div');
 
 fileInput.addEventListener('change', function() {
     if (fileInput.files.length > 0) {

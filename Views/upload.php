@@ -1,5 +1,16 @@
+<?php
+
+/*
+include 'Database/connectionDB.php';
+require_once 'library/flight/Flight.php';
+*/
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -14,14 +25,16 @@
             <div id="songImage"> </div>
             <div id="imageUploaderContainer"> <label for="songImageUploader">
                     <div id="labelForUploaderImage"> Upload File </div>
-                </label> <input id="songImageUploader" name="songImageUploader" type="file" accept="image/*" required> </div>
+                </label> <input id="songImageUploader" name="songImageUploader" type="file" accept="image/*" required>
+            </div>
         </div>
+
         <div id="nameAndDescription">
             <div id="songNameContainer">
                 <input type="text" id="songName" name="songName" placeholder="Name" required> <br>
             </div>
             <div id="songDescriptionContainer">
-                <textarea  type="text" id="songDescription" name="songDescription" placeholder="Description"></textarea>
+                <textarea type="text" id="songDescription" name="songDescription" placeholder="Description"></textarea>
             </div>
 
 
@@ -35,40 +48,46 @@
                 </select>
 
                 <select name="artist" id="tag">
-                    <?php foreach(getUser() as $user): ?>
-                        <option value="<?php $user['id'] ?>" <?= ($user['id'] == $_SESSION['id']) ? 'selected' : '' ?>><?= $user['user_name'] ?></option>
+                    <?php foreach (getUser() as $user): ?>
+                        <option value="<?php $user['id'] ?>" <?= ($user['id'] == $_SESSION['id']) ? 'selected' : '' ?>>
+                            <?= $user['user_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
 
                 <select name="feature" id="tag">
                     <option value=null></option>
-                    <?php foreach(getUser() as $user): ?>
+                    <?php foreach (getUser() as $user): ?>
                         <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
 
                 <select id="tag" name="producer">
                     <option value=null></option>
-                    <?php foreach(getUser() as $user): ?>
+                    <?php foreach (getUser() as $user): ?>
                         <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
                     <?php endforeach; ?>
                 </select>
-            </div> 
-        
+            </div>
+
             <div id="songAudioContainer">
-                <input id="songAudio" name="songAudio" type="file" accept="audio/wav, audio/mpeg" placeholder="Audio" required>
-                <label id="labelForSongAudio" for="songAudio"></label>
+                <input id="songAudio" name="songAudio" type="file" accept="audio/wav, audio/mpeg" placeholder="Audio"
+                    required>
+                <label id="labelForSongAudio" for="songAudio">
+                    <div id="mp3Div">
+                        Click here to select your song
+                    </div>
+                </label>
                 <br>
                 <input type="submit" id="songUpload" value="Upload">
             </div>
 
 
-            
+
         </div>
     </form>
 
     <script src="./Js/uploadSong.js"></script>
-    
+
 </body>
 
 </html>
