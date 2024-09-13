@@ -41,7 +41,13 @@ function DbFindUserId($uEmail, $uPassword)
     return $checkUser;
 }
 
+function getUser($userId = null) {
 
+    if ($userId != null) {
+        return R::findOne('user', 'id = ?', [$userId]);
+    }
+    return R::findAll('user');
+}
 
 
 function DBsubmitSong($sCreatorId, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)

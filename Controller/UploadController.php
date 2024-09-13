@@ -13,8 +13,11 @@ class UploadController
     {
         session_start();
 
-        if (isset($_SESSION['id'])) {
+        /*if (isset($_SESSION['id'])) {
             echo "ID: " . $_SESSION['id'];
+        }*/
+        if (!isset($_SESSION['id'])) {
+            Flight::redirect('/');
         }
 
         Flight::render('upload');
