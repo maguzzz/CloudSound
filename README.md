@@ -5,5 +5,9 @@
 
 <h1>Design </h1>
 
-![Untitled-3-1](https://github.com/user-attachments/assets/4815f619-2b59-4528-9542-4cdd51c11031)
-![Untitled-3-2](https://github.com/user-attachments/assets/b163a76a-1f0e-44d9-9dda-36b9338df6b4)
+
+![CloudSOund_page-0001](https://github.com/user-attachments/assets/c96d61bc-d7ca-40c0-b906-32809ac802ac)
+![CloudSOund_page-0002](https://github.com/user-attachments/assets/32b61cca-1cec-46b3-acba-1a8939113392)
+![CloudSOund_page-0003](https://github.com/user-attachments/assets/38c4ca84-fcff-41a4-8b51-683e693fdfd0)
+![CloudSOund_page-0004](https://github.com/user-attachments/assets/a20f8f7d-27fb-4b63-8078-0d08c4574914)
+
