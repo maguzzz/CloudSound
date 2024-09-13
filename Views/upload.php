@@ -1,4 +1,4 @@
-<label?php
+<?php
 
 /*
 include 'Database/connectionDB.php';
@@ -26,6 +26,7 @@ require_once 'library/flight/Flight.php';
                     <div id="labelForUploaderImage"> Upload File </div>
                 </label> <input id="songImageUploader" name="songImageUploader" type="file" accept="image/*" required> </div>
         </div>
+        
         <div id="nameAndDescription">
             <div id="songNameContainer">
                 <input type="text" id="songName" name="songName" placeholder="Name" required> <br>
@@ -74,11 +75,15 @@ require_once 'library/flight/Flight.php';
         
             <div id="songAudioContainer">
                 <input id="songAudio" name="songAudio" type="file" accept="audio/wav, audio/mpeg" placeholder="Audio" required>
-                <label id="labelForSongAudio" for="songAudio"></label>
+                <label id="labelForSongAudio" for="songAudio">
+                    <div id="mp3Div">
+                        Click here to select your song
+                    </div>
+                </label>
                 <br>
                 <input type="submit" id="songUpload" value="Upload">
             </div>
-
+            
 
             
         </div>
