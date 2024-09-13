@@ -95,9 +95,9 @@
                             <div id="tagAndPlayerContainer">
                                 <div id="tags">
                                     <div id="tag"><?php echo htmlspecialchars($song['songGenre']); ?></div>
-                                    <div id="tag"><?php echo htmlspecialchars(getUser(userId: $song['songArtist'])['user_name']); ?></div>
-                                    <div id="tag"><?php echo htmlspecialchars(getUser(userId: $song['songFeatures'])['user_name']); ?></div>
-                                    <div id="tag"><?php echo htmlspecialchars(getUser(userId: $song['songProducer'])['user_name']); ?></div>
+                                    <div id="tag"><?php echo htmlspecialchars(getUser($song['songArtist'])['user_name']); ?></div>                                    
+                                    <div id="tag"><?= ($song['songFeatures'] != 'null') ? htmlspecialchars(getUser($song['songFeatures'])['user_name']) : 'NONE'; ?></div>
+                                    <div id="tag"><?= ($song['songProducer'] != 'null') ? htmlspecialchars(getUser($song['songProducer'])['user_name']) : 'NONE'; ?></div>
                                     <?php if ($song['song_artist'] == $sessionID): ?>
                                         <form action="/CloudSound/delete" method="POST">
                                             <input type="hidden" name="songId" value="<?= $song['id'] ?>">
