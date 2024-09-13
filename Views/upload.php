@@ -1,15 +1,3 @@
-<?php
-
-/*
-include 'Database/connectionDB.php';
-require_once 'library/flight/Flight.php';
-*/
-
-?>
-
-
-=======
->>>>>>> 39a61fb3d577c54cd1c477880e2cefcd63a8dc36
 <!DOCTYPE html>
 <html lang="en">
 <head>
