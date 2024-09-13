@@ -201,35 +201,28 @@ select {
     font-size: 0.9em;
 }
 
-
 #actionBar {
     display: flex;
     justify-content: space-between;
     width: 60%;
     margin: auto;
-    padding-top: 2em;
     align-items: center;
     border: none; 
 }
 
-
-#WebsiteTitle{
+#WebsiteTitle {
     font-family: InterBold;
     width: auto;
     font-size: 2.5em;
     padding-right: .5em;
 }
 
-
-#searchForm{
-    font-size:  1em; 
-    color: black;
-    width: 65%; 
+#searchForm {
+    width: 58%; 
     padding-right: 1em;
 }
-#searchbar{
-    font-size:  1em; 
-    color: black;
+
+#searchbar {
     width: 100%;
     background-color: #D9D9D9;
     color: black;
@@ -237,10 +230,15 @@ select {
     border: none; 
 }
 
-#uploadForm{
-    font-size:  1em; 
-    color: black;
+.custom-button {
+    border: none;
+    border-radius: 0;
+    padding: 10px 20px;
     background-color: #D9D9D9;
-    float: left;
-    margin-right: 2em;
+    cursor: pointer;
+}
+
+.custom-button:hover {
+    background-color: #D9D9D9; 
+    color: black;
 }

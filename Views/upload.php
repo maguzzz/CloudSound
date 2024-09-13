@@ -20,6 +20,20 @@ require_once 'library/flight/Flight.php';
 
 <body>
 
+    <div id="actionBar">
+        <h1 id="WebsiteTitle">CloudSound</h1>
+        <form id="searchForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+            <input type="text" name="searchField" placeholder="Search for the newest releases" id="searchbar">
+        </form>
+
+        <form action="/CloudSound/logout" method="post">
+            <input type="submit" value="Logout" class="custom-button">
+        </form>
+
+
+    </div>
+
+
     <form id="container" action="/CloudSound/upload" method="post" enctype="multipart/form-data">
         <div id="imageAndImageUploader">
             <div id="songImage"> </div>
@@ -50,7 +64,8 @@ require_once 'library/flight/Flight.php';
                 <select name="artist" id="tag">
                     <?php foreach (getUser() as $user): ?>
                         <option value="<?php $user['id'] ?>" <?= ($user['id'] == $_SESSION['id']) ? 'selected' : '' ?>>
-                            <?= $user['user_name'] ?></option>
+                            <?= $user['user_name'] ?>
+                        </option>
                     <?php endforeach; ?>
                 </select>
 
