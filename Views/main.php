@@ -16,7 +16,7 @@
 
     <div id="PageCont">
         <div id="actionBar">
-            <h1 id="WebsiteTitle">CloudSound</h1>
+            <h1 id="WebsiteTitle"><a href="/CloudSound/">CloudSound</a></h1>
             <form id="searchForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
                 <input type="text" name="searchField" placeholder="Search for the newest releases" id="searchbar">
             </form>
