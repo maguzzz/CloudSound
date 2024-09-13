@@ -25,7 +25,7 @@
                 <?php if ($sessionID != 'NO ID FOUND'): ?>
                     <button type="submit">Upload</button>
                 <?php elseif ($sessionID): ?>
-                    <button type="submit" disabled style="color: #7C7C7C;">Upload</button>
+                    <button type="submit" disabled style="color: #7C7C7C;" title="You have to login first">Upload</button>
 
                 <?php endif; ?>
             </form>

@@ -1,13 +1,3 @@
-<label?php
-
-/*
-include 'Database/connectionDB.php';
-require_once 'library/flight/Flight.php';
-*/
-
-?>
-
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,31 +34,24 @@ require_once 'library/flight/Flight.php';
                     <option value="Drill">Drill</option>
                 </select>
 
-                <select name="artist" id="tag" required>
-                    <option value="J. Cole">J. Cole</option>
-                    <option value="J.I.D">J.I.D</option>
-                    <option value="Drake">Drake</option>
-                    <option value="Travis Scott">Travis Scott</option>
+                <select name="artist" id="tag">
+                    <?php foreach(getUser() as $user): ?>
+                        <option value="<?php $user['id'] ?>" <?= ($user['id'] == $_SESSION['id']) ? 'selected' : '' ?>><?= $user['user_name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
 
-                <select name="feature" id="tag" required>
-                    <option value="21 Savage">21 Savage</option>
-                    <option value="Eminem">Eminem</option>
-                    <option value="Juice Wrld">Juice Wrld</option>
-                    <option value="Young Thug">Young Thug</option>
-                    <option value="Timbaland">Timbaland</option>
+                <select name="feature" id="tag">
+                    <option value=null></option>
+                    <?php foreach(getUser() as $user): ?>
+                        <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
 
-                <select id="tag" name="producer" required>
-                    <option value="OZ">OZ</option>
-                    <option value="Vinylz">Vinylz</option>
-                    <option value="Wondagurl">Wondagurl</option>
-                    <option value="Cubeatz">Cubeatz</option>
-                    <option value="Dj Dahi">Dj Dahi</option>
-                    <option value="Kenny Beats">Kenny Beats</option>
-                    <option value="Boi 1da">Boi 1da</option>
-                    <option value="Jahaan Sweet">Jahaan Sweet</option>
-                    <option value="T-Minus">T-Minus</option>
+                <select id="tag" name="producer">
+                    <option value=null></option>
+                    <?php foreach(getUser() as $user): ?>
+                        <option value="<?php $user['id'] ?>"><?= $user['user_name'] ?></option>
+                    <?php endforeach; ?>
                 </select>
             </div> 
         

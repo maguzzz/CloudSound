@@ -22,14 +22,11 @@ function DBcreateUser($uName, $uEmail, $uPassword)
     if ($checkUser) {
         echo "user already exists: " . $checkUser->userName;
     } else {
-
-
         $user->userName = $uName;
         $user->userEmail = $uEmail;
         $user->userPassword = $uPassword;
 
         R::store($user);
-        echo "user created: " . $uName;
     }
 }
 
@@ -41,7 +38,13 @@ function DbFindUserId($uEmail, $uPassword)
     return $checkUser;
 }
 
+function getUser($userId = null) {
 
+    if ($userId != null) {
+        return R::findOne('user', 'id = ?', [$userId]);
+    }
+    return R::findAll('user');
+}
 
 
 function DBsubmitSong($sCreatorId, $sName, $sDescription, $sGenre, $sArtist, $sFeatures, $sProducer)
