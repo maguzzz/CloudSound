@@ -10,7 +10,7 @@ class MainController {
         Flight::view()->set('songs', DBGetSongs($searchSong));    
 
                     
-        $sessionId = $_SESSION['id'] ?? null;
+        $sessionId = $_SESSION['id'] ?? "NO ID FOUND";
         Flight::view()->set('sessionID', $sessionId);
 
         Flight::render('main');

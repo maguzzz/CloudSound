@@ -11,6 +11,9 @@
 
 <body>
 
+
+
+
     <div id="PageCont">
         <div id="actionBar">
             <h1 id="WebsiteTitle">CloudSound</h1>
@@ -127,8 +130,7 @@
         </div>
     </div>
 
-    <script src="./Js/audioplayer.js"></script>
-    <script src="./Js/main.js"></script>
+    <script src="./Js/audioplayer.js" ></script>
 
 </body>
 
