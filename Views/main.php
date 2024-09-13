@@ -98,8 +98,13 @@
                                     <div id="tag"><?php echo htmlspecialchars($song['songArtist']); ?></div>
                                     <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
                                     <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
+                                    <?php if ($song['song_artist'] == $sessionID): ?>
+                                        <form action="/CloudSound/delete" method="POST">
+                                            <input type="hidden" name="songId" value="<?= $song['id'] ?>">
+                                            <input type="submit" value="delete">
+                                        </form>
+                                    <?php endif;?>
                                 </div>
-
                             <div id="playerContainer">
                                 <div id="audioControls">
                                     <div id="seekSliderContainer">

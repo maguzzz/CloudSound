@@ -1,4 +1,4 @@
-<label?php
+<?php
 
 /*
 include 'Database/connectionDB.php';
