@@ -11,119 +11,120 @@
 
 <body>
 
-    <button type="button" id="openLoginDialog">Login</button>
+    <div id="PageCont">
+        <div id="actionBar">
+            <h1 id="WebsiteTitle">CloudSound</h1>
+            <form id="searchForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
+                <input type="text" name="searchField" placeholder="Search for the newest releases" id="searchbar">
+            </form>
 
-    <dialog id="RegisterDialog" id>
-        <button class="close-btn" id="closeRegisterDialog">
-            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-        </button>
-        <form id="registerForm" action="/CloudSound/register" method="post" enctype="multipart/form-data">
-            <input type="text" name="registerName" placeholder="Name" required>
-            <input type="text" name="registerEmail" placeholder="Email" required>
-            <input type="text" name="registerPassword" placeholder="Password" required>
-            <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
-            <div>
-                <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
-                <input type="submit" value="Register">
+            <form action="/CloudSound/upload" method="get" id="uploadForm">
+                <?php if ($sessionID != 'NO ID FOUND'): ?>
+                    <button type="submit">Upload</button>
+                <?php elseif ($sessionID): ?>
+                    <button type="submit" disabled style="color: #7C7C7C;">Upload</button>
+
+                <?php endif; ?>
+            </form>
+
+
+            <div style="display: flex; align-items: center;">
+                <?php if ($sessionID != 'NO ID FOUND'): ?>
+                    <form action="/CloudSound/logout" method="post">
+                        <input type="submit" value="Logout" class="custom-button">
+                    </form>
+                <?php elseif ($sessionID): ?>
+                    <button type="button" id="openLoginDialog" class="custom-button">Login</button>
+                <?php endif; ?>
             </div>
-        </form>
-    </dialog>
 
-    <dialog id="LoginDialog">
-        <button class="close-btn" id="closeLoginDialog">
-            <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
-        </button>
-        <form id="registerForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
-            <input type="text" name="loginEmail" placeholder="Email" required>
-            <input type="text" name="loginPassword" placeholder="Password" required>
-            <div>
-                <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
-                <input type="submit" value="Login">
-            </div>
-        </form>
-    </dialog>
-
-    <br><br>
-
-    <form action="/CloudSound/upload" method="get">
-        <button type="submit">upload</button>
-    </form>
-
-    <!--<h1><?php echo htmlspecialchars($sessionID) ?></h1>-->
-    <?php
-
-        if (isset($sessionID)) {
-            echo ("<h1>" . getUser($sessionID)['user_name'] . "</h1>");
-        }
-
-    ?>
-
-    <?php if ($sessionID != null): ?>
-        <form action="/CloudSound/logout" method="post">
-            <input type="submit" value="logout"></button>
-        </form>
-    <?php endif; ?>
-
-    <br><br><br><br><br>
-
-    <form id="searchForm" action="/CloudSound/" method="post" enctype="multipart/form-data">
-        <input type="text" name="searchField" placeholder="Search">
-        <input type="submit" value="search">
-    </form>
-
-    <div id="MusicPlayerContainer">
+        </div>
 
 
-        <?php if (isset($songs) && count($songs) > 0): ?>
-            <?php foreach ($songs as $song): ?>
-                <div id="playerBorder">
-                    <div id="playerAlbumCover"
-                        style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
-                    </div>
-
-                    <div id="titleAndSoContainer">
-                        <div id="titleAndDate">
-                            <div id="titleAndArtist">
-                                <div id="songTitle"> <?php echo htmlspecialchars($song['songName']); ?></div>
-                                <div id="songArtist"><?php echo htmlspecialchars($song['songArtist']); ?></div>
-                            </div>
-                            <div id="dateContainer"><?php echo htmlspecialchars($song['songReleaseDate']) ?></div>
-                        </div>
-                        <div id="tagAndPlayerContainer">
-                            <div id="tags">
-                                <div id="tag"><?php echo htmlspecialchars($song['songGenre']); ?></div>
-                                <div id="tag"><?php echo htmlspecialchars($song['songArtist']); ?></div>
-                                <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
-                                <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
-                            </div>
-
-                            <div id="playerContainer">
-                                <div id="audioControls">
-                                    <div id="seekSliderContainer">
-                                        <input type="range" class="seekSlider" id="seekSlider" value="0">
-                                    </div>
-                                    <div id="buttonsAndVolume">
-                                        <audio class="audio-player" src="<?php echo $song->songAudio ?>" preload="metadata"
-                                            loop></audio>
-                                        <button class="SecBack" id="SecBack"></button>
-                                        <button class="playIcon" id="playIcon" value="Play"></button>
-                                        <button class="SecForward" id="SecForward"></button>
-                                        <input type="range" class="volumeSlider" id="volumeSlider" value="100">
-
-                                    </div>
-
-                                </div>
-                            </div>
 
 
-                        </div>
-
-                    </div>
+        <dialog id="RegisterDialog" id>
+            <button class="close-btn" id="closeRegisterDialog">
+                <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+            </button>
+            <form id="registerForm" action="/CloudSound/register" method="post" enctype="multipart/form-data">
+                <input type="text" name="registerName" placeholder="Name" required>
+                <input type="text" name="registerEmail" placeholder="Email" required>
+                <input type="text" name="registerPassword" placeholder="Password" required>
+                <input type="text" name="registerConfirmPassword" placeholder="Confirm Password" required>
+                <div>
+                    <p id="RegLogQ">Already Registered? <a href="#" id="toLogin">Click here to login</a></p>
+                    <input type="submit" value="Register">
                 </div>
-            <?php endforeach; ?>
-        <?php else: ?>
-            <p>No songs available.</p>
-        <?php endif; ?>
+            </form>
+        </dialog>
+
+        <dialog id="LoginDialog">
+            <button class="close-btn" id="closeLoginDialog">
+                <img src="./Resources/Icons/X.png" alt="Close" class="close-img">
+            </button>
+            <form id="registerForm" action="/CloudSound/login" method="post" enctype="multipart/form-data">
+                <input type="text" name="loginEmail" placeholder="Email" required>
+                <input type="text" name="loginPassword" placeholder="Password" required>
+                <div>
+                    <p id="RegLogQ">Don't have an Account? <a href="#" id="toRegister">Click here to Register</a></p>
+                    <input type="submit" value="Login">
+                </div>
+            </form>
+        </dialog>
+
+        <div id="MusicPlayerContainer">
+            <?php if (isset($songs) && count($songs) > 0): ?>
+                <?php foreach ($songs as $song): ?>
+                    <div id="playerBorder">
+                        <div id="playerAlbumCover"
+                            style="background-image: url('<?php echo htmlspecialchars($song['songImage']); ?>');">
+                        </div>
+
+                        <div id="titleAndSoContainer">
+                            <div id="titleAndDate">
+                                <div id="titleAndArtist">
+                                    <div id="songTitle"> <?php echo htmlspecialchars($song['songName']); ?></div>
+                                    <div id="songArtist"><?php echo htmlspecialchars($song['songDescription']); ?></div>
+                                </div>
+                                <div id="dateContainer"><?php echo htmlspecialchars($song['songReleaseDate']) ?></div>
+                            </div>
+                            <div id="tagAndPlayerContainer">
+                                <div id="tags">
+                                    <div id="tag"><?php echo htmlspecialchars($song['songGenre']); ?></div>
+                                    <div id="tag"><?php echo htmlspecialchars($song['songArtist']); ?></div>
+                                    <div id="tag"><?php echo htmlspecialchars($song['songFeatures']); ?></div>
+                                    <div id="tag"><?php echo htmlspecialchars($song['songProducer']); ?></div>
+                                </div>
+
+                                <div id="playerContainer">
+                                    <div id="audioControls">
+                                        <div id="seekSliderContainer">
+                                            <input type="range" id="seekSlider" value="0">
+                                        </div>
+                                        <div id="buttonsAndVolume">
+                                            <audio src="<?php echo $song->songAudio ?>" preload="metadata" loop
+                                                class="audioplayer"></audio>
+                                            <button id="SecBack"></button>
+                                            <button id="playIcon" value="Play"></button>
+                                            <button id="SecForward"></button>
+                                            <input type="range" id="volumeSlider" value="100">
+
+                                        </div>
+
+                                    </div>
+                                </div>
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            <?php else: ?>
+                <p>No songs available.</p>
+            <?php endif; ?>
+        </div>
     </div>
 
     <script src="./Js/audioplayer.js"></script>

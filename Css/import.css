@@ -3,6 +3,12 @@
     src: url("../Fonts/Inter_Medium.ttf");
 }
 
+@font-face {
+    font-family: "InterBold";
+    src: url("../Fonts/Inter_Bold.ttf");
+}
+
+
 
 * {
     font-family: InterMedium;
