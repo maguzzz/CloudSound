@@ -22,14 +22,11 @@ function DBcreateUser($uName, $uEmail, $uPassword)
     if ($checkUser) {
         echo "user already exists: " . $checkUser->userName;
     } else {
-
-
         $user->userName = $uName;
         $user->userEmail = $uEmail;
         $user->userPassword = $uPassword;
 
         R::store($user);
-        echo "user created: " . $uName;
     }
 }
 
